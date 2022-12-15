@@ -13,7 +13,6 @@ const MainContainer = styled.main`
   margin: 0 auto;
   padding: 0 15px;
   width: calc(100% - 15px * 2);
-  max-width: ${({ theme }) => theme.breakpoint.laptop};
 `;
 
 export default MainContainer;
