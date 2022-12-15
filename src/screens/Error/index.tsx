@@ -3,12 +3,10 @@ import styled from "styled-components";
 import ROUTES from "@constants/routes";
 import Head from "@components/Head";
 import { APP } from "@constants/main";
-import useTranslation from "@hooks/useTranslation";
 import Link from "next/link";
 import MainContainer from "@components/Layout/MainContainer";
 
 const Error: React.FC = () => {
-  const { t } = useTranslation();
   return (
     <Container>
       <Head title={t("error.head.title")} />
