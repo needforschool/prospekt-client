@@ -143,11 +143,6 @@ export default createGlobalStyle`
     body {
         font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue",
             "Lucida Grande", sans-serif;
-        background-color: ${({ theme }) => theme.colors.layout.darkest};
-    }
-
-    option {
-        background-color: ${({ theme }) => theme.colors.layout.darkest};
     }
 
     /* scrollbar */
@@ -185,17 +180,12 @@ export default createGlobalStyle`
     textarea,
     select,
     option {
-        font-family: ${({ theme }) => theme.family.primary};
-        font-size: ${({ theme }) => theme.size.normal};
-        font-weight: ${({ theme }) => theme.weight.regular};
         text-align: left;
-        color: ${({ theme }) => theme.colors.text.lightest};
         line-height: 1.25;
     }
 
     a {
         text-decoration: none;
-        color: ${({ theme }) => theme.colors.text.lightest};
         transition: all 0.2s;
         cursor: pointer;
 
