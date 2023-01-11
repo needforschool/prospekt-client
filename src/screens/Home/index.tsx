@@ -7,10 +7,8 @@ const Home: React.FC = () => {
     <Container>
       <Content>
         <Image src={Logo} alt="" width={430} height={130} />
-        <ButtonContainer>
-          <SignIn>Sign in</SignIn>
-          <SignUp>Sign up</SignUp>
-        </ButtonContainer>
+
+        <SignIn>Sign in</SignIn>
       </Content>
     </Container>
   );
@@ -32,13 +30,6 @@ const Content = styled.div`
   align-items: center;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 120px;
-`;
-
 const SignIn = styled.button`
   width: 184px;
   height: 60px;
@@ -49,19 +40,7 @@ const SignIn = styled.button`
   font-weight: 500;
   text-align: center;
   line-height: 30px;
-`;
-
-const SignUp = styled.button`
-  width: 184px;
-  height: 60px;
-  background-color: #f5f5f5;
-  border-radius: 30px;
-  color: #1a72f8;
-  font-size: 22px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 30px;
-  margin-top: 20px;
+  margin-top: 120px;
 `;
 
 export default Home;
