@@ -1,3 +1,4 @@
+import Button from "@components/Layout/Button";
 import Image from "next/image";
 import styled from "styled-components";
 import Logo from "/public/static/images/logo/logo.png";
@@ -6,8 +7,9 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Image src={Logo} alt="" width={430} height={130} />
-
+        <ImageContainer>
+          <LogoImage src={Logo} alt="" />
+        </ImageContainer>
         <SignIn>Sign in</SignIn>
       </Content>
     </Container>
@@ -30,7 +32,20 @@ const Content = styled.div`
   align-items: center;
 `;
 
-const SignIn = styled.button`
+const ImageContainer = styled.div`
+  width: 100%;
+ 
+  }
+`;
+
+const LogoImage = styled(Image)`
+  object-fit: contain;
+  width: 100%;
+  position: relative;
+  height: unset;
+`;
+
+const SignIn = styled(Button)`
   width: 184px;
   height: 60px;
   background-color: #1a72f8;
@@ -41,6 +56,8 @@ const SignIn = styled.button`
   text-align: center;
   line-height: 30px;
   margin-top: 120px;
+  border: none;
+  cursor: pointer;
 `;
 
 export default Home;
