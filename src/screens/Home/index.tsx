@@ -8,7 +8,7 @@ const Home: React.FC = () => {
     <Container>
       <Content>
         <ImageContainer>
-          <LogoImage src={Logo} alt="" />
+          <LogoImage src={Logo} alt="Prospekt logo" />
         </ImageContainer>
         <SignIn>Sign in</SignIn>
       </Content>
