@@ -24,6 +24,7 @@ const Container = styled.div`
   text-align: center;
   background: #141522;
   height: 100vh;
+  padding: 0 15px;
 `;
 
 const Content = styled.div`
@@ -34,8 +35,6 @@ const Content = styled.div`
 
 const ImageContainer = styled.div`
   width: 100%;
- 
-  }
 `;
 
 const LogoImage = styled(Image)`
@@ -43,6 +42,25 @@ const LogoImage = styled(Image)`
   width: 100%;
   position: relative;
   height: unset;
+  transform: translateY(-10%);
+  animation: floater 1.5s infinite;
+  transition: ease 0.5s;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  @keyframes floating {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 15px);
+    }
+    100% {
+      transform: translate(0, -0px);
+    }
+  }
 `;
 
 const SignIn = styled(Button)`
