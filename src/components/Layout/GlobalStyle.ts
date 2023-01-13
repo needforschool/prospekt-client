@@ -136,11 +136,6 @@ export default createGlobalStyle`
     *, *:before, *:after {
         box-sizing: border-box;
     }
-    html,
-    body,
-    #__next {
-        height: 100%;
-    }
 
     body {
         font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue",

@@ -8,7 +8,7 @@ const SignIn: React.FC = () => {
     <Container>
       <FormColumn>
         <ImageContainer>
-          <LogoImage src={Logo} alt="Logo" width={200} height={200} />
+          <LogoImage src={Logo} alt="Logo" width={150} />
         </ImageContainer>
         <Form>
           <FormGroup>
