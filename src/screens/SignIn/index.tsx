@@ -40,26 +40,35 @@ const SignIn: React.FC = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  background: #141522;
+  justify-content: space-between;
   height: 100vh;
-  padding: 0 15px;
-  color: #f5f5f5;
+  width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  color: ${({ theme }) => theme.colors.greyscale3};
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0 32px;
+  }
 `;
 
 const FormColumn = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: column;
-  height: 100vh;
-  // background-color: blue;
-  padding-left: 5px;
+  height: calc(100% - 48px);
+  width: 386px;
+  padding: 24px 0;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: 100%;
+  }
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
   display: flex;
   height: unset;
-  padding-left: 120px;
 `;
 
 const LogoImage = styled(Image)`
@@ -70,55 +79,59 @@ const LogoImage = styled(Image)`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: fit-content;
-  margin-left: 120px;
   margin-top: 80px;
 `;
 
 const FormGroup = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  // text-align: center;
+  :not(:first-child) {
+    margin-top: 53px;
+  }
+  :after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.greyscale3};
+  }
 `;
 
-const Title = styled.label`
-  padding-left: 20px;
-`;
+const Title = styled.label``;
 
 const TextInput = styled.input`
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #f5f5f5;
-  margin-left: 22px;
   margin-top: 20px;
-  color: #d2d2d2;
+  color: ${({ theme }) => theme.colors.greyscale4};
   outline: none;
 `;
 
 const Submit = styled(Button)`
-  width: 386px;
+  width: 100%;
   height: 40px;
-  background-color: #1a72f8;
-  border-radius: 30px;
-  color: #f5f5f5;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 30px;
   margin-top: 50px;
-  border: none;
-  cursor: pointer;
-  margin-left: 20px;
+  border-radius: 20px;
 `;
 
 const ImageColumn = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100vh;
-  background-color: pink;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 48px);
+  width: 692px;
+  margin: 24px 0;
+  border-radius: 24px;
+  background-color: ${({ theme }) => theme.colors.greyscale4};
+  object-fit: cover;
+  object-position: 50% 50%;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: 100%;
+    height: 80%;
+  }
 `;
 
 export default SignIn;
