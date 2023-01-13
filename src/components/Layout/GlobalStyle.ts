@@ -133,7 +133,9 @@ export default createGlobalStyle`
     }
     
     /* main */
-
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
     html,
     body,
     #__next {
@@ -143,6 +145,11 @@ export default createGlobalStyle`
     body {
         font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue",
             "Lucida Grande", sans-serif;
+    }
+
+    /* background-color */
+    body{
+        background: #141522;
     }
 
     /* scrollbar */
@@ -249,5 +256,10 @@ export default createGlobalStyle`
         100% {
             transform: translatey(0px);
         }
+    }
+
+    /* button */
+    button{
+        padding: unset;
     }
 `;
