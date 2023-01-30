@@ -153,7 +153,7 @@ const Circle = styled.div`
   background-color: ${({ theme }) => theme.colors.greyscale2};
 `;
 
-const Profile = styled(Image)``;
+// const Profile = styled(Image)``;
 
 const Name = styled.span`
   color: ${({ theme }) => theme.colors.greyscale1};

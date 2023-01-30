@@ -1,6 +1,4 @@
-import Image from "next/image";
 import styled from "styled-components";
-import Logo from "/public/static/images/logo/logo.png";
 import Sidebar from "@components/Sidebar";
 
 const Dashboard: React.FC = () => {
