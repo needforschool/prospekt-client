@@ -34,7 +34,7 @@ const Content = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 100%;
+  width: 590px;
 `;
 
 const LogoImage = styled(Image)`
@@ -42,8 +42,7 @@ const LogoImage = styled(Image)`
   width: 100%;
   position: relative;
   height: unset;
-  transform: translateY(-10%);
-  animation: floater 1.5s infinite;
+  transform: translateY(-10px);
   transition: ease 0.5s;
   animation-name: floating;
   animation-duration: 3s;
@@ -55,7 +54,7 @@ const LogoImage = styled(Image)`
       transform: translate(0, 0px);
     }
     50% {
-      transform: translate(0, 15px);
+      transform: translate(0, 10px);
     }
     100% {
       transform: translate(0, -0px);
