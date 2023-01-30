@@ -213,8 +213,9 @@ const RadioInput = styled.input``;
 const Radio = styled.div`
   display: flex;
   align-items: center;
+  gap: 8px;
   width: 183px;
-  padding: 23px 20px;
+  padding: 12px 16px;
   border-radius: 4px;
   border: 1px solid transparent;
   :has(${RadioInput}:checked) {
