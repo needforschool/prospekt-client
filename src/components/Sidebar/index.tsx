@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
             <LinkText>Quotes</LinkText>
           </NavLink>
           <Sep></Sep>
-          <NavLink href="/invoces" active={pathname === "/invoces"}>
+          <NavLink href="/invoices" active={pathname === "/invoices"}>
             <LinkIcon src={icn6} alt="icn-6" width={24} />
             <LinkText>Invoices</LinkText>
           </NavLink>
