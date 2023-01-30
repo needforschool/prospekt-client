@@ -130,7 +130,7 @@ const ImageColumn = styled.div`
   object-position: 50% 50%;
   @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 100%;
-    height: 80%;
+    height: 50vh;
   }
 `;
 
