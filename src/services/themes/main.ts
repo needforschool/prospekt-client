@@ -2,7 +2,8 @@ import { Theme } from "@typeDefs/themes";
 
 const main: Theme = {
   colors: {
-    bg: "#141522",
+    bg1: "#141522",
+    bg2: "#28293E",
     primary1: "#1A72F8",
     primary2: "#3B53AA",
     secondary1: "#F86716",

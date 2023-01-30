@@ -190,10 +190,6 @@ export default createGlobalStyle`
         text-decoration: none;
         transition: all 0.2s;
         cursor: pointer;
-
-        :hover {
-            filter: brightness(0.8);
-        }
     }
 
     /* animations */
