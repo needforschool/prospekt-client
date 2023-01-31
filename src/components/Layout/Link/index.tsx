@@ -57,7 +57,7 @@ const Link = React.forwardRef<HTMLAnchorElement, Props>(
 
 Link.displayName = "Link";
 
-const Anchor = styled.a<Props>`
+const Anchor = styled.div<Props>`
   ${({ href, onClick }) => !href && !onClick && "cursor: default;"}
 `;
 
