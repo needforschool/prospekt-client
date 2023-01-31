@@ -99,15 +99,64 @@ const Dashboard: React.FC = () => {
           <AddUserContainer>
             <HeadContainer>
               <HeadTitle>Add user</HeadTitle>
+              <HeadButton href="/add-user">Add</HeadButton>
             </HeadContainer>
+            <ActionContainer>
+              <CurrentUserContainer>
+                <UserNumber>62</UserNumber>
+                <CurrentUser>Current users</CurrentUser>
+              </CurrentUserContainer>
+            </ActionContainer>
           </AddUserContainer>
-          <UserContainer>
+          <UsersContainer>
             <HeadContainer>
               <HeadTitle>Users</HeadTitle>
               <HeadButton href="/users">See all</HeadButton>
             </HeadContainer>
-            {/* <ListContainer></ListContainer> */}
-          </UserContainer>
+            <ListContainer>
+              <ContainerRow>
+                <UserContainer>
+                  <PictureContainer></PictureContainer>
+                  <InfosContainer>
+                    <NameContainer>Mango</NameContainer>
+                    <EmailContainer>Jerel.Marks99@gmail.com</EmailContainer>
+                  </InfosContainer>
+                </UserContainer>
+                <Sep></Sep>
+                <UserContainer>
+                  <PictureContainer></PictureContainer>
+                  <InfosContainer>
+                    <NameContainer>Philips</NameContainer>
+                    <EmailContainer>Kaya_Jacobi85@yahoo.com</EmailContainer>
+                  </InfosContainer>
+                </UserContainer>
+                <Sep></Sep>
+                <UserContainer>
+                  <PictureContainer></PictureContainer>
+                  <InfosContainer>
+                    <NameContainer>Baptista</NameContainer>
+                    <EmailContainer>Rick93@gmail.com</EmailContainer>
+                  </InfosContainer>
+                </UserContainer>
+                <Sep></Sep>
+                <UserContainer>
+                  <PictureContainer></PictureContainer>
+                  <InfosContainer>
+                    <NameContainer>Saris</NameContainer>
+                    <EmailContainer>Elva.Stiedemann@yahoo.com</EmailContainer>
+                  </InfosContainer>
+                </UserContainer>
+                <Sep></Sep>
+                <UserContainer>
+                  <PictureContainer></PictureContainer>
+                  <InfosContainer>
+                    <NameContainer>Korsgaard</NameContainer>
+                    <EmailContainer>Laisha14@gmail.com</EmailContainer>
+                  </InfosContainer>
+                </UserContainer>
+              </ContainerRow>
+            </ListContainer>
+          </UsersContainer>
           <HistoryContainer>
             <HeadContainer>
               <HeadTitle>History</HeadTitle>
@@ -349,6 +398,7 @@ const ContainerRow = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   ::-webkit-scrollbar {
@@ -465,13 +515,84 @@ const AddUserContainer = styled.div`
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
+  display: flex;
+  flex-direction: column;
 `;
 
-const UserContainer = styled.div`
+const ActionContainer = styled.div`
+  margin-top: 16px;
+  height: calc(100% - 46px);
+`;
+
+const CurrentUserContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+`;
+
+const UserNumber = styled.span`
+  font-family: ${({ theme }) => theme.family.primary};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  font-size: 5vh;
+  line-height: 5vh;
+  color: ${({ theme }) => theme.colors.greyscale2};
+`;
+
+const CurrentUser = styled.span`
+  font-family: ${({ theme }) => theme.family.primary};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  font-size: ${({ theme }) => theme.size.big};
+  color: ${({ theme }) => theme.colors.greyscale2};
+`;
+
+const UsersContainer = styled.div`
   grid-area: 3 / 3 / 6 / 4;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`;
+
+const ListContainer = styled.div`
+  display: flex;
+  margin-top: 24px;
+  height: calc(100% - 64px);
+`;
+
+const UserContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+`;
+
+const PictureContainer = styled.div`
+  width: 48px;
+  height: 48px;
+  background-color: ${({ theme }) => theme.colors.primary1};
+  border-radius: 24px;
+`;
+
+const InfosContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+const NameContainer = styled.p`
+  font-family: ${({ theme }) => theme.family.secondary};
+  font-size: ${({ theme }) => theme.size.big};
+  color: ${({ theme }) => theme.colors.greyscale2};
+`;
+
+const EmailContainer = styled.p`
+  font-family: ${({ theme }) => theme.family.secondary};
+  font-size: ${({ theme }) => theme.size.medium};
+  color: ${({ theme }) => theme.colors.greyscale5};
 `;
 
 export default Dashboard;
