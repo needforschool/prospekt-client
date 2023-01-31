@@ -12,6 +12,7 @@ export type Theme = {
     greyscale4: string;
     greyscale5: string;
     greyscale6: string;
+    greyscale7: string;
     status1: string;
     status2: string;
     status3: string;
