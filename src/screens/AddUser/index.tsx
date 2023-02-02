@@ -94,7 +94,91 @@ const AddUser: React.FC = () => {
               <Submit>Send email</Submit>
             </Form>
           </AddUserContainer>
-          <HistoryContainer></HistoryContainer>
+          <HistoryContainer>
+            <HeadContainer>
+              <HeadTitle>Quotes</HeadTitle>
+            </HeadContainer>
+            <ArrayContainer>
+              <HeadRow>
+                <FirstTitle>Actions</FirstTitle>
+                <SecondTitle>Users</SecondTitle>
+                <ThirdTitle>Date</ThirdTitle>
+              </HeadRow>
+              <ContainerRow>
+                <ContentRow>
+                  <FirstContent>New customer registered</FirstContent>
+                  <SecondContent>Shari Prosacco IV</SecondContent>
+                  <ThirdContent>17sec ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New customer registered</FirstContent>
+                  <SecondContent>Joe Wisozk</SecondContent>
+                  <ThirdContent>1h07 ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New customer registered</FirstContent>
+                  <SecondContent>Virgil Douglas</SecondContent>
+                  <ThirdContent>5h47 ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New prospect added</FirstContent>
+                  <SecondContent>Julian Runolfsdottir</SecondContent>
+                  <ThirdContent>11h47 ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New customer registered</FirstContent>
+                  <SecondContent>Peggy Walsh</SecondContent>
+                  <ThirdContent>1 day ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New customer registered</FirstContent>
+                  <SecondContent>Darnell Heidenreich</SecondContent>
+                  <ThirdContent>3 days ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New prospect added</FirstContent>
+                  <SecondContent>Marian Kub</SecondContent>
+                  <ThirdContent>2 weeks ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New prospect added</FirstContent>
+                  <SecondContent>Forrest Cassin</SecondContent>
+                  <ThirdContent>2 weeks ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New prospect added</FirstContent>
+                  <SecondContent>Andrea Pollich</SecondContent>
+                  <ThirdContent>2 weeks ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New prospect added</FirstContent>
+                  <SecondContent>Darrell Feil</SecondContent>
+                  <ThirdContent>2 weeks ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New prospect added</FirstContent>
+                  <SecondContent>Megan Kreiger</SecondContent>
+                  <ThirdContent>2 weeks ago</ThirdContent>
+                </ContentRow>
+                <Sep></Sep>
+                <ContentRow>
+                  <FirstContent>New prospect added</FirstContent>
+                  <SecondContent>Shannon Wisoky</SecondContent>
+                  <ThirdContent>2 weeks ago</ThirdContent>
+                </ContentRow>
+              </ContainerRow>
+            </ArrayContainer>
+          </HistoryContainer>
         </CardsContainer>
       </Container>
     </Main>
@@ -261,6 +345,112 @@ const HistoryContainer = styled.div`
   height: 100%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
+  padding: 24px;
+`;
+
+const HeadContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const HeadTitle = styled.h2`
+  font-family: ${({ theme }) => theme.family.primary};
+  font-size: ${({ theme }) => theme.size.h2};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  color: ${({ theme }) => theme.colors.secondary1};
+`;
+
+const ArrayContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100% - 64px);
+  margin-top: 24px;
+`;
+
+const HeadRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const FirstTitle = styled.h3`
+  font-family: ${({ theme }) => theme.family.primary};
+  font-size: ${({ theme }) => theme.size.big};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  color: ${({ theme }) => theme.colors.greyscale1};
+  width: 10%;
+`;
+
+const SecondTitle = styled.h3`
+  font-family: ${({ theme }) => theme.family.primary};
+  font-size: ${({ theme }) => theme.size.big};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  color: ${({ theme }) => theme.colors.greyscale1};
+  width: 30%;
+`;
+
+const ThirdTitle = styled.h3`
+  font-family: ${({ theme }) => theme.family.primary};
+  font-size: ${({ theme }) => theme.size.big};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  color: ${({ theme }) => theme.colors.greyscale1};
+  width: 20%;
+`;
+
+const ContainerRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #494a57;
+    border-radius: 2px;
+  }
+`;
+
+const ContentRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const FirstContent = styled.span`
+  font-family: ${({ theme }) => theme.family.secondary};
+  font-size: ${({ theme }) => theme.size.medium};
+  color: ${({ theme }) => theme.colors.greyscale5};
+  width: 10%;
+`;
+
+const SecondContent = styled.span`
+  font-family: ${({ theme }) => theme.family.secondary};
+  font-size: ${({ theme }) => theme.size.medium};
+  color: ${({ theme }) => theme.colors.greyscale2};
+  width: 30%;
+`;
+
+const ThirdContent = styled.span`
+  font-family: ${({ theme }) => theme.family.secondary};
+  font-size: ${({ theme }) => theme.size.medium};
+  color: ${({ theme }) => theme.colors.greyscale4};
+  width: 20%;
+`;
+
+const Sep = styled.div`
+  flex-shrink: 0;
+  width: calc(100% - 8px);
+  height: 1px;
+  background-color: #fafafa;
+  opacity: 0.1;
 `;
 
 export default AddUser;
