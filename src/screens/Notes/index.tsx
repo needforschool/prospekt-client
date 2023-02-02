@@ -177,6 +177,7 @@ const CardsContainer = styled.div`
 `;
 
 const HistoryContainer = styled.div`
+  width: 45%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
@@ -291,6 +292,7 @@ const Sep = styled.div`
 `;
 
 const NotesContainer = styled.div`
+  width: 55%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
@@ -333,10 +335,13 @@ const InputLabel = styled.label`
   font-size: 16px;
 `;
 const Select = styled.select`
-  color: ${({ theme }) => theme.colors.greyscale3};
-  margin-top: 16px;
-  background-color: ${({ theme }) => theme.colors.bg1};
+  height: 32px;
+  padding: 4px;
+  background-color: #202132;
+  border-radius: 8px;
+  color: ${({ theme }) => theme.colors.greyscale1};
   border: none;
+  outline: none;
 `;
 const Option = styled.option``;
 
@@ -351,18 +356,19 @@ const Textarea = styled.textarea`
 `;
 
 const SaveButton = styled.button`
-  border: none;
-  display: inline-flex;
+  margin: 0 0 0 auto;
+  margin-top: 32px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 20px;
-  width: 40%;
-  font-family: ${({ theme }) => theme.family.secondary};
-  color: ${({ theme }) => theme.colors.greyscale2};
+  height: 32px;
+  width: 30%;
+  border-radius: 16px;
+  color: ${({ theme }) => theme.colors.greyscale1};
   background-color: ${({ theme }) => theme.colors.primary1};
-  border-radius: 20px;
-  margin-top: 32px;
-  align-self: flex-end;
+  border: none;
+  outline: none;
+  cursor: pointer;
 `;
 
 export default Notes;
