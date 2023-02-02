@@ -96,45 +96,43 @@ const Notes: React.FC = () => {
               <HeadTitle>Add notes</HeadTitle>
             </HeadContainer>
             <Form>
-              <Content>
-                <InputContainer>
-                  <InputLabel htmlFor="customer-select">User</InputLabel>
-                  <Select name="user" id="customer-select">
-                    <Option value="">Select customer</Option>
-                    <Option value="dog">Dog</Option>
-                    <Option value="cat">Cat</Option>
-                    <Option value="hamster">Hamster</Option>
-                    <Option value="parrot">Parrot</Option>
-                    <Option value="spider">Spider</Option>
-                    <Option value="goldfish">Goldfish</Option>
-                  </Select>
-                </InputContainer>
-                <NoteSep></NoteSep>
-                <InputContainer>
-                  <InputLabel htmlFor="category-select">Category</InputLabel>
-                  <Select name="category" id="category-select">
-                    <Option value="">Select actions</Option>
-                    <Option value="dog">Dog</Option>
-                    <Option value="cat">Cat</Option>
-                    <Option value="hamster">Hamster</Option>
-                    <Option value="parrot">Parrot</Option>
-                    <Option value="spider">Spider</Option>
-                    <Option value="goldfish">Goldfish</Option>
-                  </Select>
-                </InputContainer>
-                <NoteSep></NoteSep>
-                <InputContainer>
-                  <InputLabel htmlFor="description">Add description</InputLabel>
-                  <Textarea
-                    id="description"
-                    name="description"
-                    rows={5}
-                    cols={33}
-                    placeholder="Description..."
-                  ></Textarea>
-                </InputContainer>
-                <SaveButton>Save</SaveButton>
-              </Content>
+              <InputContainer>
+                <InputLabel htmlFor="customer-select">User</InputLabel>
+                <Select name="user" id="customer-select">
+                  <Option value="">Select customer</Option>
+                  <Option value="dog">Dog</Option>
+                  <Option value="cat">Cat</Option>
+                  <Option value="hamster">Hamster</Option>
+                  <Option value="parrot">Parrot</Option>
+                  <Option value="spider">Spider</Option>
+                  <Option value="goldfish">Goldfish</Option>
+                </Select>
+              </InputContainer>
+              <NoteSep></NoteSep>
+              <InputContainer>
+                <InputLabel htmlFor="category-select">Category</InputLabel>
+                <Select name="category" id="category-select">
+                  <Option value="">Select actions</Option>
+                  <Option value="dog">Dog</Option>
+                  <Option value="cat">Cat</Option>
+                  <Option value="hamster">Hamster</Option>
+                  <Option value="parrot">Parrot</Option>
+                  <Option value="spider">Spider</Option>
+                  <Option value="goldfish">Goldfish</Option>
+                </Select>
+              </InputContainer>
+              <NoteSep></NoteSep>
+              <InputContainer>
+                <InputLabel htmlFor="description">Add description</InputLabel>
+                <Textarea
+                  id="description"
+                  name="description"
+                  rows={5}
+                  cols={33}
+                  placeholder="Description..."
+                ></Textarea>
+              </InputContainer>
+              <SaveButton>Save</SaveButton>
             </Form>
           </NotesContainer>
         </CardsContainer>
@@ -177,6 +175,7 @@ const CardsContainer = styled.div`
 `;
 
 const HistoryContainer = styled.div`
+  width: 45%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
@@ -291,6 +290,7 @@ const Sep = styled.div`
 `;
 
 const NotesContainer = styled.div`
+  width: 55%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
@@ -298,9 +298,7 @@ const NotesContainer = styled.div`
   flex-direction: column;
 `;
 
-const Form = styled.form``;
-
-const Content = styled.div`
+const Form = styled.form`
   overflow-y: auto;
   overflow-x: hidden;
   ::-webkit-scrollbar {
@@ -333,10 +331,13 @@ const InputLabel = styled.label`
   font-size: 16px;
 `;
 const Select = styled.select`
-  color: ${({ theme }) => theme.colors.greyscale3};
-  margin-top: 16px;
-  background-color: ${({ theme }) => theme.colors.bg1};
+  height: 32px;
+  padding: 4px;
+  background-color: #202132;
+  border-radius: 8px;
+  color: ${({ theme }) => theme.colors.greyscale1};
   border: none;
+  outline: none;
 `;
 const Option = styled.option``;
 
@@ -351,18 +352,19 @@ const Textarea = styled.textarea`
 `;
 
 const SaveButton = styled.button`
-  border: none;
-  display: inline-flex;
+  margin: 0 0 0 auto;
+  margin-top: 32px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 20px;
-  width: 40%;
-  font-family: ${({ theme }) => theme.family.secondary};
-  color: ${({ theme }) => theme.colors.greyscale2};
+  height: 32px;
+  width: 30%;
+  border-radius: 16px;
+  color: ${({ theme }) => theme.colors.greyscale1};
   background-color: ${({ theme }) => theme.colors.primary1};
-  border-radius: 20px;
-  margin-top: 32px;
-  align-self: flex-end;
+  border: none;
+  outline: none;
+  cursor: pointer;
 `;
 
 export default Notes;
