@@ -1,4 +1,3 @@
-import Button from "@components/Layout/Button";
 import Image from "next/image";
 import styled from "styled-components";
 import Logo from "/public/static/images/logo/logo.png";
