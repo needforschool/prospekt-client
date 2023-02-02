@@ -4,6 +4,18 @@ import styled from "styled-components";
 import Logo from "/public/static/images/logo/logo.png";
 
 const SignIn: React.FC = () => {
+  function setCustomer() {
+    const d = new Date();
+    d.setTime(d.getTime() + 3 * 24 * 60 * 60 * 1000);
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = "role=Customer ;" + expires + ";path=/";
+  }
+  function setSales() {
+    const d = new Date();
+    d.setTime(d.getTime() + 3 * 24 * 60 * 60 * 1000);
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = "role=Sales ;" + expires + ";path=/";
+  }
   return (
     <Container>
       <FormColumn>
@@ -31,6 +43,14 @@ const SignIn: React.FC = () => {
           </FormGroup>
           <Submit>Login</Submit>
         </Form>
+        <LogContainer>
+          <CustomerLog onClick={setCustomer} href="/dashboard">
+            Log as Customer
+          </CustomerLog>
+          <SalesLog onClick={setSales} href="/dashboard">
+            Log as Sales
+          </SalesLog>
+        </LogContainer>
       </FormColumn>
       <ImageColumn></ImageColumn>
     </Container>
@@ -74,6 +94,47 @@ const ImageContainer = styled.div`
 const LogoImage = styled(Image)`
   object-fit: contain;
   height: unset;
+`;
+
+const LogContainer = styled.div`
+  padding-top: 48px;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+`;
+
+const CustomerLog = styled.a`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #1a72f8;
+  border-radius: 20px;
+  font-family: ${({ theme }) => theme.family.primary};
+  font-size: ${({ theme }) => theme.size.big};
+  font-weight: ${({ theme }) => theme.weight.medium};
+  color: ${({ theme }) => theme.colors.greyscale1};
+  text-align: center;
+  border: none;
+  cursor: pointer;
+`;
+
+const SalesLog = styled.a`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #1a72f8;
+  border-radius: 20px;
+  font-family: ${({ theme }) => theme.family.primary};
+  font-size: ${({ theme }) => theme.size.big};
+  font-weight: ${({ theme }) => theme.weight.medium};
+  color: ${({ theme }) => theme.colors.greyscale1};
+  text-align: center;
+  border: none;
+  cursor: pointer;
 `;
 
 const Form = styled.form`
