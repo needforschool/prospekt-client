@@ -338,6 +338,8 @@ const Select = styled.select`
   color: ${({ theme }) => theme.colors.greyscale1};
   border: none;
   outline: none;
+  margin-top: 8px;
+  width: 40%;
 `;
 const Option = styled.option``;
 
@@ -349,6 +351,7 @@ const Textarea = styled.textarea`
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.greyscale3};
   resize: none;
+  outline: none;
 `;
 
 const SaveButton = styled.button`
