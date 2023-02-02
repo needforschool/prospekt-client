@@ -20,41 +20,43 @@ const Quotes: React.FC = () => {
       let i = 1;
       addItem?.addEventListener("click", () => {
         i++;
-        containerRow.innerHTML += ReactDOMServer.renderToString(
-          <>
-            <InputContainer2 className="inputRow">
-              <InputText1
-                type="text"
-                placeholder="Website"
-                id={"name" + i}
-                name={"name" + i}
-              ></InputText1>
-              <InputSelect2 id={"quantity" + i} name={"quantity" + i}>
-                {QuantityInput.map((el, i) => {
-                  return (
-                    <option key={i} value={el}>
-                      {el}
-                    </option>
-                  );
-                })}
-              </InputSelect2>
-              <InputText2
-                type="text"
-                placeholder="100"
-                id={"price" + i}
-                name={"price" + i}
-              ></InputText2>
-              <InputText3
-                type="text"
-                placeholder="20"
-                id={"vat" + i}
-                name={"vat" + i}
-              ></InputText3>
-              <RemoveRow>-</RemoveRow>
-            </InputContainer2>
-            <Sep></Sep>
-          </>
-        );
+        if (containerRow !== null) {
+          containerRow.innerHTML += ReactDOMServer.renderToString(
+            <>
+              <InputContainer2 className="inputRow">
+                <InputText1
+                  type="text"
+                  placeholder="Website"
+                  id={"name" + i}
+                  name={"name" + i}
+                ></InputText1>
+                <InputSelect2 id={"quantity" + i} name={"quantity" + i}>
+                  {QuantityInput.map((el, i) => {
+                    return (
+                      <option key={i} value={el}>
+                        {el}
+                      </option>
+                    );
+                  })}
+                </InputSelect2>
+                <InputText2
+                  type="text"
+                  placeholder="100"
+                  id={"price" + i}
+                  name={"price" + i}
+                ></InputText2>
+                <InputText3
+                  type="text"
+                  placeholder="20"
+                  id={"vat" + i}
+                  name={"vat" + i}
+                ></InputText3>
+                <RemoveRow>-</RemoveRow>
+              </InputContainer2>
+              <Sep></Sep>
+            </>
+          );
+        }
       });
     }
     addFormRow();
