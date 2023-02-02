@@ -126,18 +126,18 @@ const Title = styled.h1`
 
 const CardsContainer = styled.div`
   padding-top: 24px;
-  height: 100%;
+  height: calc(100vh - 144px);
   width: 100%;
   max-width: 1376px;
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 24px;
 `;
 
 const AddUserContainer = styled.div`
-  width: 836px;
-  height: 820px;
+  width: 60%;
+  height: 100%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
 `;
@@ -257,8 +257,8 @@ const Submit = styled(Button)`
 `;
 
 const HistoryContainer = styled.div`
-  width: 518px;
-  height: 820px;
+  width: 40%;
+  height: 100%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
 `;
