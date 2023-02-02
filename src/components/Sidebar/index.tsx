@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/dist/client/router";
 import styled from "styled-components";
 import Logo from "/public/static/images/logo/logo.png";
@@ -17,55 +17,108 @@ const Sidebar: React.FC = () => {
   const router = useRouter();
   const { pathname } = router;
 
+  const [userRole, setUserRole] = React.useState("");
+
+  function getCookie() {
+    const name = "role";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        setUserRole(c.split("=")[1]);
+        return true;
+      }
+    }
+    return false;
+  }
+  const mount = true;
+  useEffect(() => {
+    getCookie();
+  }, [mount]);
+
   return (
     <Container>
       <Content>
         <ImageContainer>
           <LogoImage src={Logo} alt="Logo" width={150} />
         </ImageContainer>
-        <LinkContainer>
-          <NavLink href="/dashboard" active={pathname === "/dashboard"}>
-            <LinkIcon src={icn1} alt="icn-1" width={24} />
-            <LinkText>Dashboard</LinkText>
-          </NavLink>
-          <Sep></Sep>
-          <NavLink href="/add-user" active={pathname === "/add-user"}>
-            <LinkIcon src={icn2} alt="icn-2" width={24} />
-            <LinkText>Add user</LinkText>
-          </NavLink>
-          <Sep></Sep>
-          <NavLink href="/users" active={pathname === "/users"}>
-            <LinkIcon src={icn3} alt="icn-3" width={24} />
-            <LinkText>Users</LinkText>
-          </NavLink>
-          <Sep></Sep>
-          <NavLink href="/history" active={pathname === "/history"}>
-            <LinkIcon src={icn4} alt="icn-4" width={24} />
-            <LinkText>History</LinkText>
-          </NavLink>
-          <Sep></Sep>
-          <NavLink href="/quotes" active={pathname === "/quotes"}>
-            <LinkIcon src={icn5} alt="icn-5" width={24} />
-            <LinkText>Quotes</LinkText>
-          </NavLink>
-          <Sep></Sep>
-          <NavLink href="/invoices" active={pathname === "/invoices"}>
-            <LinkIcon src={icn6} alt="icn-6" width={24} />
-            <LinkText>Invoices</LinkText>
-          </NavLink>
-          <Sep></Sep>
-          <NavLink href="/notes" active={pathname === "/notes"}>
-            <LinkIcon src={icn7} alt="icn-7" width={24} />
-            <LinkText>Notes</LinkText>
-          </NavLink>
-        </LinkContainer>
+        {(() => {
+          if (userRole === "Sales") {
+            return (
+              <LinkContainer>
+                <NavLink href="/dashboard" active={pathname === "/dashboard"}>
+                  <LinkIcon src={icn1} alt="icn-1" width={24} />
+                  <LinkText>Dashboard</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/add-user" active={pathname === "/add-user"}>
+                  <LinkIcon src={icn2} alt="icn-2" width={24} />
+                  <LinkText>Add user</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/users" active={pathname === "/users"}>
+                  <LinkIcon src={icn3} alt="icn-3" width={24} />
+                  <LinkText>Users</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/history" active={pathname === "/history"}>
+                  <LinkIcon src={icn4} alt="icn-4" width={24} />
+                  <LinkText>History</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/quotes" active={pathname === "/quotes"}>
+                  <LinkIcon src={icn5} alt="icn-5" width={24} />
+                  <LinkText>Quotes</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/invoices" active={pathname === "/invoices"}>
+                  <LinkIcon src={icn6} alt="icn-6" width={24} />
+                  <LinkText>Invoices</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/notes" active={pathname === "/notes"}>
+                  <LinkIcon src={icn7} alt="icn-7" width={24} />
+                  <LinkText>Notes</LinkText>
+                </NavLink>
+              </LinkContainer>
+            );
+          } else {
+            return (
+              <LinkContainer>
+                <NavLink href="/dashboard" active={pathname === "/dashboard"}>
+                  <LinkIcon src={icn1} alt="icn-1" width={24} />
+                  <LinkText>Dashboard</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/history" active={pathname === "/history"}>
+                  <LinkIcon src={icn4} alt="icn-4" width={24} />
+                  <LinkText>History</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/invoices" active={pathname === "/invoices"}>
+                  <LinkIcon src={icn6} alt="icn-6" width={24} />
+                  <LinkText>Invoices</LinkText>
+                </NavLink>
+                <Sep></Sep>
+                <NavLink href="/notes" active={pathname === "/notes"}>
+                  <LinkIcon src={icn7} alt="icn-7" width={24} />
+                  <LinkText>Notes</LinkText>
+                </NavLink>
+              </LinkContainer>
+            );
+          }
+        })()}
         <LogContainer>
           <LogName>
             <Circle></Circle>
             {/* <Profile src="" alt=""></Profile> */}
             <Name>User</Name> {/*  +Roles if !== client || prospect  */}
           </LogName>
-          <LogoutContainer>
+          <LogoutContainer href="/signin">
             <LogoutIcon src={logout} alt="logout" width={24} />
             <LogoutText>Logout</LogoutText>
           </LogoutContainer>
@@ -159,7 +212,7 @@ const Name = styled.span`
   color: ${({ theme }) => theme.colors.greyscale1};
 `;
 
-const LogoutContainer = styled.div`
+const LogoutContainer = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 20px;

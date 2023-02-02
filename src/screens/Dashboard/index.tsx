@@ -1,246 +1,288 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Sidebar from "@components/Sidebar";
 
 const Dashboard: React.FC = () => {
+  const [userRole, setUserRole] = React.useState("");
+
+  function getCookie() {
+    const name = "role";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        setUserRole(c.split("=")[1]);
+      }
+    }
+    return false;
+  }
+  const mount = true;
+  useEffect(() => {
+    getCookie();
+  }, [mount]);
   return (
     <Main>
       <Sidebar></Sidebar>
       <Container>
         <Title>Dashboard</Title>
-        <CardsContainer>
-          <QuotesContainer>
-            <HeadContainer>
-              <HeadTitle>Quotes</HeadTitle>
-              <HeadButton href="/quotes">See all</HeadButton>
-            </HeadContainer>
-            <ArrayContainer>
-              <HeadRow>
-                <FirstTitle>Clients</FirstTitle>
-                <SecondTitle>Date</SecondTitle>
-                <ThirdTitle>Amount</ThirdTitle>
-              </HeadRow>
-              <ContainerRow>
-                <ContentRow>
-                  <FirstContent>Botosh</FirstContent>
-                  <SecondContent>12/01/2022</SecondContent>
-                  <ThirdContent>732.37$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Press</FirstContent>
-                  <SecondContent>11/28/2022</SecondContent>
-                  <ThirdContent>932.11$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Korsgaard</FirstContent>
-                  <SecondContent>11/16/2022</SecondContent>
-                  <ThirdContent>621.68$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Calzoni</FirstContent>
-                  <SecondContent>11/12/2022</SecondContent>
-                  <ThirdContent>518.46$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Kock-Bouabid</FirstContent>
-                  <SecondContent>11/07/2022</SecondContent>
-                  <ThirdContent>751$</ThirdContent>
-                </ContentRow>
-              </ContainerRow>
-            </ArrayContainer>
-          </QuotesContainer>
-          <InvoicesContainer>
-            <HeadContainer>
-              <HeadTitle>Invoices</HeadTitle>
-              <HeadButton href="/invoices">See all</HeadButton>
-            </HeadContainer>
-            <ArrayContainer>
-              <HeadRow>
-                <FirstTitle>Clients</FirstTitle>
-                <SecondTitle>Status</SecondTitle>
-                <ThirdTitle>Amount</ThirdTitle>
-              </HeadRow>
-              <ContainerRow>
-                <ContentRow>
-                  <FirstContent>Phillip</FirstContent>
-                  <SecondContent data-status="paid">Paid</SecondContent>
-                  <ThirdContent>199.50$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Lipshutz</FirstContent>
-                  <SecondContent data-status="canceled">Canceled</SecondContent>
-                  <ThirdContent>2470.49$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Dos Santos</FirstContent>
-                  <SecondContent data-status="pending">Pending</SecondContent>
-                  <ThirdContent>57.04$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Workman</FirstContent>
-                  <SecondContent data-status="pending">Pending</SecondContent>
-                  <ThirdContent>3778$</ThirdContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Schleifer</FirstContent>
-                  <SecondContent data-status="paid">Paid</SecondContent>
-                  <ThirdContent>248.27$</ThirdContent>
-                </ContentRow>
-              </ContainerRow>
-            </ArrayContainer>
-          </InvoicesContainer>
-          <AddUserContainer>
-            <HeadContainer>
-              <HeadTitle>Add user</HeadTitle>
-              <HeadButton href="/add-user">Add</HeadButton>
-            </HeadContainer>
-            <ActionContainer>
-              <CurrentUserContainer>
-                <UserNumber>62</UserNumber>
-                <CurrentUser>Current users</CurrentUser>
-              </CurrentUserContainer>
-            </ActionContainer>
-          </AddUserContainer>
-          <UsersContainer>
-            <HeadContainer>
-              <HeadTitle>Users</HeadTitle>
-              <HeadButton href="/users">See all</HeadButton>
-            </HeadContainer>
-            <ListContainer>
-              <ContainerRow>
-                <UserContainer>
-                  <PictureContainer></PictureContainer>
-                  <InfosContainer>
-                    <NameContainer>Mango</NameContainer>
-                    <EmailContainer>Jerel.Marks99@gmail.com</EmailContainer>
-                  </InfosContainer>
-                </UserContainer>
-                <Sep></Sep>
-                <UserContainer>
-                  <PictureContainer></PictureContainer>
-                  <InfosContainer>
-                    <NameContainer>Philips</NameContainer>
-                    <EmailContainer>Kaya_Jacobi85@yahoo.com</EmailContainer>
-                  </InfosContainer>
-                </UserContainer>
-                <Sep></Sep>
-                <UserContainer>
-                  <PictureContainer></PictureContainer>
-                  <InfosContainer>
-                    <NameContainer>Baptista</NameContainer>
-                    <EmailContainer>Rick93@gmail.com</EmailContainer>
-                  </InfosContainer>
-                </UserContainer>
-                <Sep></Sep>
-                <UserContainer>
-                  <PictureContainer></PictureContainer>
-                  <InfosContainer>
-                    <NameContainer>Saris</NameContainer>
-                    <EmailContainer>Elva.Stiedemann@yahoo.com</EmailContainer>
-                  </InfosContainer>
-                </UserContainer>
-                <Sep></Sep>
-                <UserContainer>
-                  <PictureContainer></PictureContainer>
-                  <InfosContainer>
-                    <NameContainer>Korsgaard</NameContainer>
-                    <EmailContainer>Laisha14@gmail.com</EmailContainer>
-                  </InfosContainer>
-                </UserContainer>
-              </ContainerRow>
-            </ListContainer>
-          </UsersContainer>
-          <HistoryContainer>
-            <HeadContainer>
-              <HeadTitle>History</HeadTitle>
-              <HeadButton href="/history">See all</HeadButton>
-            </HeadContainer>
-            <ArrayContainer>
-              <HeadRow>
-                <FirstTitle2>Actions</FirstTitle2>
-                <SecondTitle>Date</SecondTitle>
-              </HeadRow>
-              <ContainerRow>
-                <ContentRow>
-                  <FirstContent2>Outgoing call</FirstContent2>
-                  <SecondContent2>17sec ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Payment received</FirstContent2>
-                  <SecondContent2>1h07 ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>New customer registered</FirstContent2>
-                  <SecondContent2>5h47 ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>New prospect added</FirstContent2>
-                  <SecondContent2>11h47 ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Email sent</FirstContent2>
-                  <SecondContent2>1day ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Quote created</FirstContent2>
-                  <SecondContent2>3days ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Payment received</FirstContent2>
-                  <SecondContent2>1month ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Invoice sent</FirstContent2>
-                  <SecondContent2>4month ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Email sent</FirstContent2>
-                  <SecondContent2>11months ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Quote created</FirstContent2>
-                  <SecondContent2>1year ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Outgoing call</FirstContent2>
-                  <SecondContent2>1year ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Email sent</FirstContent2>
-                  <SecondContent2>1year ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Payment received</FirstContent2>
-                  <SecondContent2>3year ago</SecondContent2>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent2>Invoice sent</FirstContent2>
-                  <SecondContent2>3year ago</SecondContent2>
-                </ContentRow>
-              </ContainerRow>
-            </ArrayContainer>
-          </HistoryContainer>
-        </CardsContainer>
+        {(() => {
+          if (userRole === "Sales") {
+            return (
+              <CardsContainer>
+                <QuotesContainer>
+                  <HeadContainer>
+                    <HeadTitle>Quotes</HeadTitle>
+                    <HeadButton href="/quotes">See all</HeadButton>
+                  </HeadContainer>
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle>Clients</FirstTitle>
+                      <SecondTitle>Date</SecondTitle>
+                      <ThirdTitle>Amount</ThirdTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent>Botosh</FirstContent>
+                        <SecondContent>12/01/2022</SecondContent>
+                        <ThirdContent>732.37$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Press</FirstContent>
+                        <SecondContent>11/28/2022</SecondContent>
+                        <ThirdContent>932.11$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Korsgaard</FirstContent>
+                        <SecondContent>11/16/2022</SecondContent>
+                        <ThirdContent>621.68$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Calzoni</FirstContent>
+                        <SecondContent>11/12/2022</SecondContent>
+                        <ThirdContent>518.46$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Kock-Bouabid</FirstContent>
+                        <SecondContent>11/07/2022</SecondContent>
+                        <ThirdContent>751$</ThirdContent>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                </QuotesContainer>
+                <InvoicesContainer>
+                  <HeadContainer>
+                    <HeadTitle>Invoices</HeadTitle>
+                    <HeadButton href="/invoices">See all</HeadButton>
+                  </HeadContainer>
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle>Clients</FirstTitle>
+                      <SecondTitle>Status</SecondTitle>
+                      <ThirdTitle>Amount</ThirdTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent>Phillip</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>199.50$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Lipshutz</FirstContent>
+                        <SecondContent data-status="canceled">
+                          Canceled
+                        </SecondContent>
+                        <ThirdContent>2470.49$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Dos Santos</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>57.04$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Workman</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>3778$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Schleifer</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>248.27$</ThirdContent>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                </InvoicesContainer>
+                <AddUserContainer>
+                  <HeadContainer>
+                    <HeadTitle>Add user</HeadTitle>
+                    <HeadButton href="/add-user">Add</HeadButton>
+                  </HeadContainer>
+                  <ActionContainer>
+                    <CurrentUserContainer>
+                      <UserNumber>62</UserNumber>
+                      <CurrentUser>Current users</CurrentUser>
+                    </CurrentUserContainer>
+                  </ActionContainer>
+                </AddUserContainer>
+                <UsersContainer>
+                  <HeadContainer>
+                    <HeadTitle>Users</HeadTitle>
+                    <HeadButton href="/users">See all</HeadButton>
+                  </HeadContainer>
+                  <ListContainer>
+                    <ContainerRow>
+                      <UserContainer>
+                        <PictureContainer></PictureContainer>
+                        <InfosContainer>
+                          <NameContainer>Mango</NameContainer>
+                          <EmailContainer>
+                            Jerel.Marks99@gmail.com
+                          </EmailContainer>
+                        </InfosContainer>
+                      </UserContainer>
+                      <Sep></Sep>
+                      <UserContainer>
+                        <PictureContainer></PictureContainer>
+                        <InfosContainer>
+                          <NameContainer>Philips</NameContainer>
+                          <EmailContainer>
+                            Kaya_Jacobi85@yahoo.com
+                          </EmailContainer>
+                        </InfosContainer>
+                      </UserContainer>
+                      <Sep></Sep>
+                      <UserContainer>
+                        <PictureContainer></PictureContainer>
+                        <InfosContainer>
+                          <NameContainer>Baptista</NameContainer>
+                          <EmailContainer>Rick93@gmail.com</EmailContainer>
+                        </InfosContainer>
+                      </UserContainer>
+                      <Sep></Sep>
+                      <UserContainer>
+                        <PictureContainer></PictureContainer>
+                        <InfosContainer>
+                          <NameContainer>Saris</NameContainer>
+                          <EmailContainer>
+                            Elva.Stiedemann@yahoo.com
+                          </EmailContainer>
+                        </InfosContainer>
+                      </UserContainer>
+                      <Sep></Sep>
+                      <UserContainer>
+                        <PictureContainer></PictureContainer>
+                        <InfosContainer>
+                          <NameContainer>Korsgaard</NameContainer>
+                          <EmailContainer>Laisha14@gmail.com</EmailContainer>
+                        </InfosContainer>
+                      </UserContainer>
+                    </ContainerRow>
+                  </ListContainer>
+                </UsersContainer>
+                <HistoryContainer>
+                  <HeadContainer>
+                    <HeadTitle>History</HeadTitle>
+                    <HeadButton href="/history">See all</HeadButton>
+                  </HeadContainer>
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle2>Actions</FirstTitle2>
+                      <SecondTitle>Date</SecondTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent2>Outgoing call</FirstContent2>
+                        <SecondContent2>17sec ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Payment received</FirstContent2>
+                        <SecondContent2>1h07 ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>New customer registered</FirstContent2>
+                        <SecondContent2>5h47 ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>New prospect added</FirstContent2>
+                        <SecondContent2>11h47 ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Email sent</FirstContent2>
+                        <SecondContent2>1day ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Quote created</FirstContent2>
+                        <SecondContent2>3days ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Payment received</FirstContent2>
+                        <SecondContent2>1month ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Invoice sent</FirstContent2>
+                        <SecondContent2>4month ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Email sent</FirstContent2>
+                        <SecondContent2>11months ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Quote created</FirstContent2>
+                        <SecondContent2>1year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Outgoing call</FirstContent2>
+                        <SecondContent2>1year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Email sent</FirstContent2>
+                        <SecondContent2>1year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Payment received</FirstContent2>
+                        <SecondContent2>3year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Invoice sent</FirstContent2>
+                        <SecondContent2>3year ago</SecondContent2>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                </HistoryContainer>
+              </CardsContainer>
+            );
+          } else {
+            return <div>ok customers</div>;
+          }
+        })()}
       </Container>
     </Main>
   );
