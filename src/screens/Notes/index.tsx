@@ -96,45 +96,43 @@ const Notes: React.FC = () => {
               <HeadTitle>Add notes</HeadTitle>
             </HeadContainer>
             <Form>
-              <Content>
-                <InputContainer>
-                  <InputLabel htmlFor="customer-select">User</InputLabel>
-                  <Select name="user" id="customer-select">
-                    <Option value="">Select customer</Option>
-                    <Option value="dog">Dog</Option>
-                    <Option value="cat">Cat</Option>
-                    <Option value="hamster">Hamster</Option>
-                    <Option value="parrot">Parrot</Option>
-                    <Option value="spider">Spider</Option>
-                    <Option value="goldfish">Goldfish</Option>
-                  </Select>
-                </InputContainer>
-                <NoteSep></NoteSep>
-                <InputContainer>
-                  <InputLabel htmlFor="category-select">Category</InputLabel>
-                  <Select name="category" id="category-select">
-                    <Option value="">Select actions</Option>
-                    <Option value="dog">Dog</Option>
-                    <Option value="cat">Cat</Option>
-                    <Option value="hamster">Hamster</Option>
-                    <Option value="parrot">Parrot</Option>
-                    <Option value="spider">Spider</Option>
-                    <Option value="goldfish">Goldfish</Option>
-                  </Select>
-                </InputContainer>
-                <NoteSep></NoteSep>
-                <InputContainer>
-                  <InputLabel htmlFor="description">Add description</InputLabel>
-                  <Textarea
-                    id="description"
-                    name="description"
-                    rows={5}
-                    cols={33}
-                    placeholder="Description..."
-                  ></Textarea>
-                </InputContainer>
-                <SaveButton>Save</SaveButton>
-              </Content>
+              <InputContainer>
+                <InputLabel htmlFor="customer-select">User</InputLabel>
+                <Select name="user" id="customer-select">
+                  <Option value="">Select customer</Option>
+                  <Option value="dog">Dog</Option>
+                  <Option value="cat">Cat</Option>
+                  <Option value="hamster">Hamster</Option>
+                  <Option value="parrot">Parrot</Option>
+                  <Option value="spider">Spider</Option>
+                  <Option value="goldfish">Goldfish</Option>
+                </Select>
+              </InputContainer>
+              <NoteSep></NoteSep>
+              <InputContainer>
+                <InputLabel htmlFor="category-select">Category</InputLabel>
+                <Select name="category" id="category-select">
+                  <Option value="">Select actions</Option>
+                  <Option value="dog">Dog</Option>
+                  <Option value="cat">Cat</Option>
+                  <Option value="hamster">Hamster</Option>
+                  <Option value="parrot">Parrot</Option>
+                  <Option value="spider">Spider</Option>
+                  <Option value="goldfish">Goldfish</Option>
+                </Select>
+              </InputContainer>
+              <NoteSep></NoteSep>
+              <InputContainer>
+                <InputLabel htmlFor="description">Add description</InputLabel>
+                <Textarea
+                  id="description"
+                  name="description"
+                  rows={5}
+                  cols={33}
+                  placeholder="Description..."
+                ></Textarea>
+              </InputContainer>
+              <SaveButton>Save</SaveButton>
             </Form>
           </NotesContainer>
         </CardsContainer>
@@ -300,9 +298,7 @@ const NotesContainer = styled.div`
   flex-direction: column;
 `;
 
-const Form = styled.form``;
-
-const Content = styled.div`
+const Form = styled.form`
   overflow-y: auto;
   overflow-x: hidden;
   ::-webkit-scrollbar {
