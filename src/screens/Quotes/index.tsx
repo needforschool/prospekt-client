@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Sidebar from "@components/Sidebar";
 import React, { useEffect } from "react";
+import ReactDOMServer from "react-dom/server";
 
 const Quotes: React.FC = () => {
   const QuantityInput = [
@@ -16,32 +17,44 @@ const Quotes: React.FC = () => {
     function addFormRow() {
       const addItem = document.querySelector(".addItem");
       const containerRow = document.querySelector(".containerRow");
-      const inputRow = document.querySelector(".inputRow");
-      const sep = document.querySelector(".sep");
+      let i = 1;
       addItem?.addEventListener("click", () => {
-        console.log(addItem);
-        console.log(containerRow);
-        console.log(inputRow);
-        console.log(sep);
-        // containerRow.innerHTML += (
-        //   <>
-        //     <InputContainer2 className="inputRow">
-        //       <InputText1 type="text" placeholder="Description"></InputText1>
-        //       <InputSelect2>
-        //         {QuantityInput.map((el, i) => {
-        //           return (
-        //             <option key={i} value={el}>
-        //               {el}
-        //             </option>
-        //           );
-        //         })}
-        //       </InputSelect2>
-        //       <InputText2 type="text" placeholder="100"></InputText2>
-        //       <InputText3 type="text" placeholder="20"></InputText3>
-        //     </InputContainer2>
-        //     <Sep></Sep>
-        //   </>
-        // );
+        i++;
+        containerRow.innerHTML += ReactDOMServer.renderToString(
+          <>
+            <InputContainer2 className="inputRow">
+              <InputText1
+                type="text"
+                placeholder="Website"
+                id={"name" + i}
+                name={"name" + i}
+              ></InputText1>
+              <InputSelect2 id={"quantity" + i} name={"quantity" + i}>
+                {QuantityInput.map((el, i) => {
+                  return (
+                    <option key={i} value={el}>
+                      {el}
+                    </option>
+                  );
+                })}
+              </InputSelect2>
+              <InputText2
+                type="text"
+                placeholder="100"
+                id={"price" + i}
+                name={"price" + i}
+              ></InputText2>
+              <InputText3
+                type="text"
+                placeholder="20"
+                id={"vat" + i}
+                name={"vat" + i}
+              ></InputText3>
+              <RemoveRow>-</RemoveRow>
+            </InputContainer2>
+            <Sep></Sep>
+          </>
+        );
       });
     }
     addFormRow();
@@ -194,8 +207,13 @@ const Quotes: React.FC = () => {
               </InputNameContainer>
               <ContainerRow2 className="containerRow">
                 <InputContainer2 className="inputRow">
-                  <InputText1 type="text" placeholder="Website"></InputText1>
-                  <InputSelect2>
+                  <InputText1
+                    type="text"
+                    placeholder="Website"
+                    id="name1"
+                    name="name1"
+                  ></InputText1>
+                  <InputSelect2 id="quantity1" name="quantity1">
                     {QuantityInput.map((el, i) => {
                       return (
                         <option key={i} value={el}>
@@ -204,8 +222,18 @@ const Quotes: React.FC = () => {
                       );
                     })}
                   </InputSelect2>
-                  <InputText2 type="text" placeholder="100"></InputText2>
-                  <InputText3 type="text" placeholder="20"></InputText3>
+                  <InputText2
+                    type="text"
+                    placeholder="100"
+                    id="price1"
+                    name="price1"
+                  ></InputText2>
+                  <InputText3
+                    type="text"
+                    placeholder="20"
+                    id="vat1"
+                    name="vat1"
+                  ></InputText3>
                 </InputContainer2>
                 <Sep className="sep"></Sep>
               </ContainerRow2>
@@ -273,7 +301,7 @@ const Sep = styled.div`
   flex-shrink: 0;
   width: calc(100% - 8px);
   height: 1px;
-  background-color: ${({ theme }) => theme.colors.greyscale2};
+  background-color: #fafafa;
   opacity: 0.1;
 `;
 
@@ -300,7 +328,6 @@ const ContainerRow2 = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 80%;
   max-height: 180px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -429,15 +456,14 @@ const InputContainer1 = styled.div`
 
 const InputContainer2 = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 2vw;
   align-items: center;
 `;
 
 const InputNameContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 2vw;
   align-items: center;
-  width: 80%;
   padding-bottom: 16px;
 `;
 
@@ -454,11 +480,11 @@ const InputText1 = styled.input`
   border: none;
   outline: none;
   background: transparent;
-  font-family: ${({ theme }) => theme.family.secondary};
-  font-size: ${({ theme }) => theme.size.medium};
-  font-weight: ${({ theme }) => theme.weight.regular};
-  color: ${({ theme }) => theme.colors.greyscale1};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.greyscale1};
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
 `;
 
 const InputText2 = styled.input`
@@ -468,11 +494,11 @@ const InputText2 = styled.input`
   outline: none;
   background: transparent;
   text-align: right;
-  font-family: ${({ theme }) => theme.family.secondary};
-  font-size: ${({ theme }) => theme.size.medium};
-  font-weight: ${({ theme }) => theme.weight.regular};
-  color: ${({ theme }) => theme.colors.greyscale1};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.greyscale1};
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
 `;
 
 const InputText3 = styled.input`
@@ -482,11 +508,11 @@ const InputText3 = styled.input`
   outline: none;
   background: transparent;
   text-align: right;
-  font-family: ${({ theme }) => theme.family.secondary};
-  font-size: ${({ theme }) => theme.size.medium};
-  font-weight: ${({ theme }) => theme.weight.regular};
-  color: ${({ theme }) => theme.colors.greyscale1};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.greyscale1};
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
 `;
 
 const InputSelect1 = styled.select`
@@ -505,7 +531,7 @@ const InputSelect2 = styled.select`
   padding: 4px;
   background-color: #202132;
   border-radius: 8px;
-  color: ${({ theme }) => theme.colors.greyscale1};
+  color: #ffffff;
   border: none;
   outline: none;
 `;
@@ -545,6 +571,20 @@ const AddRowContainer = styled.span`
     background-color: #202132;
     border-radius: 50%;
   }
+`;
+
+const RemoveRow = styled.span`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #202132;
+  border-radius: 50%;
 `;
 
 const Sep2 = styled.div`
