@@ -10,89 +10,91 @@ const AddUser: React.FC = () => {
         <Title>Add user</Title>
         <CardsContainer>
           <AddUserContainer>
-            <FormTitle>Users</FormTitle>
-            <Form>
-              <FormGroup>
-                <RadioContainer>
-                  <Radio>
-                    <RadioInput
-                      type="radio"
-                      id="individual"
-                      name="identity"
-                      value="individual"
-                    />
-                    <Label htmlFor="individual">Individual</Label>
-                  </Radio>
-                  <Radio>
-                    <RadioInput
-                      type="radio"
-                      id="company"
-                      name="identity"
-                      value="company"
-                      defaultChecked
-                    />
-                    <Label htmlFor="company">Company</Label>
-                  </Radio>
-                </RadioContainer>
-              </FormGroup>
-              <CompanyInfo>
-                <FormGroupVariant>
-                  <FieldTitle>SIRET</FieldTitle>
+            <FormWrapper>
+              <FormTitle>Users</FormTitle>
+              <Form>
+                <FormGroup>
+                  <RadioContainer>
+                    <Radio>
+                      <RadioInput
+                        type="radio"
+                        id="individual"
+                        name="identity"
+                        value="individual"
+                      />
+                      <Label htmlFor="individual">Individual</Label>
+                    </Radio>
+                    <Radio>
+                      <RadioInput
+                        type="radio"
+                        id="company"
+                        name="identity"
+                        value="company"
+                        defaultChecked
+                      />
+                      <Label htmlFor="company">Company</Label>
+                    </Radio>
+                  </RadioContainer>
+                </FormGroup>
+                <CompanyInfo>
+                  <FormGroupVariant>
+                    <FieldTitle>SIRET</FieldTitle>
+                    <TextInput
+                      type="text"
+                      id="siret"
+                      name="siret"
+                      placeholder="123 568 941 00056"
+                    ></TextInput>
+                  </FormGroupVariant>
+                  <FormGroupVariant>
+                    <FieldTitle>VAT</FieldTitle>
+                    <TextInput
+                      type="text"
+                      id="vat"
+                      name="vat"
+                      placeholder="FR 32 123568941"
+                    ></TextInput>
+                  </FormGroupVariant>
+                </CompanyInfo>
+                <FormGroup>
+                  <FieldTitle>Full Name</FieldTitle>
                   <TextInput
                     type="text"
-                    id="siret"
-                    name="siret"
-                    placeholder="123 568 941 00056"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="John Doe"
                   ></TextInput>
-                </FormGroupVariant>
-                <FormGroupVariant>
-                  <FieldTitle>VAT</FieldTitle>
+                </FormGroup>
+                <FormGroup>
+                  <FieldTitle>Email address</FieldTitle>
                   <TextInput
                     type="text"
-                    id="vat"
-                    name="vat"
-                    placeholder="FR 32 123568941"
+                    id="email"
+                    name="email"
+                    placeholder="johndoe@prospekt.com"
                   ></TextInput>
-                </FormGroupVariant>
-              </CompanyInfo>
-              <FormGroup>
-                <FieldTitle>Full Name</FieldTitle>
-                <TextInput
-                  type="text"
-                  id="fullname"
-                  name="fullname"
-                  placeholder="John Doe"
-                ></TextInput>
-              </FormGroup>
-              <FormGroup>
-                <FieldTitle>Email address</FieldTitle>
-                <TextInput
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="johndoe@prospekt.com"
-                ></TextInput>
-              </FormGroup>
-              <FormGroup>
-                <FieldTitle>Phone number</FieldTitle>
-                <TextInput
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  placeholder="+33 06 01 02 03 04"
-                ></TextInput>
-              </FormGroup>
-              <FormGroup>
-                <FieldTitle>Password</FieldTitle>
-                <TextInput
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="***********"
-                ></TextInput>
-              </FormGroup>
-              <Submit>Send email</Submit>
-            </Form>
+                </FormGroup>
+                <FormGroup>
+                  <FieldTitle>Phone number</FieldTitle>
+                  <TextInput
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="+33 06 01 02 03 04"
+                  ></TextInput>
+                </FormGroup>
+                <FormGroup>
+                  <FieldTitle>Password</FieldTitle>
+                  <TextInput
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="***********"
+                  ></TextInput>
+                </FormGroup>
+                <Submit>Send email</Submit>
+              </Form>
+            </FormWrapper>
           </AddUserContainer>
           <HistoryContainer>
             <HeadContainer>
@@ -220,10 +222,14 @@ const CardsContainer = styled.div`
 `;
 
 const AddUserContainer = styled.div`
-  width: 60%;
+  width: 50%;
   height: 100%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
+`;
+
+const FormWrapper = styled.div`
+  padding: 24px;
 `;
 
 const Form = styled.form`
@@ -231,21 +237,21 @@ const Form = styled.form`
   flex-direction: column;
   width: fit-content;
   width: 90%;
-  margin-left: 24px;
-  margin-top: 20px;
+  margin-top: 24px;
+  width: 100%;
 `;
 
 const FormTitle = styled.h2`
   color: ${({ theme }) => theme.colors.secondary1};
-  margin-left: 24px;
-  margin-top: 28px;
   font-size: ${({ theme }) => theme.size.h2};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  font-family: ${({ theme }) => theme.family.primary};
 `;
 
 const CompanyInfo = styled.div`
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  gap: 32px;
   margin-top: 40px;
   :not(:nth-of-type(2)) {
     margin-top: 53px;
@@ -296,7 +302,7 @@ const FieldTitle = styled.label`
 const RadioContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 32px;
   padding-top: 12px;
   @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     justify-content: unset;
@@ -341,7 +347,7 @@ const Submit = styled(Button)`
 `;
 
 const HistoryContainer = styled.div`
-  width: 40%;
+  width: 50%;
   height: 100%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
@@ -380,7 +386,7 @@ const FirstTitle = styled.h3`
   font-size: ${({ theme }) => theme.size.big};
   font-weight: ${({ theme }) => theme.weight.bold};
   color: ${({ theme }) => theme.colors.greyscale1};
-  width: 10%;
+  width: 25%;
 `;
 
 const SecondTitle = styled.h3`
@@ -426,9 +432,9 @@ const ContentRow = styled.div`
 
 const FirstContent = styled.span`
   font-family: ${({ theme }) => theme.family.secondary};
-  font-size: ${({ theme }) => theme.size.medium};
-  color: ${({ theme }) => theme.colors.greyscale5};
-  width: 10%;
+  font-size: ${({ theme }) => theme.size.small};
+  color: ${({ theme }) => theme.colors.greyscale2};
+  width: 25%;
 `;
 
 const SecondContent = styled.span`
@@ -441,7 +447,7 @@ const SecondContent = styled.span`
 const ThirdContent = styled.span`
   font-family: ${({ theme }) => theme.family.secondary};
   font-size: ${({ theme }) => theme.size.medium};
-  color: ${({ theme }) => theme.colors.greyscale4};
+  color: ${({ theme }) => theme.colors.greyscale5};
   width: 20%;
 `;
 
