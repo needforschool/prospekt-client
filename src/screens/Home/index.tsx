@@ -10,7 +10,7 @@ const Home: React.FC = () => {
         <ImageContainer>
           <LogoImage src={Logo} alt="Prospekt logo" />
         </ImageContainer>
-        <SignIn>Sign in</SignIn>
+        <SignIn href="/signin">Sign in</SignIn>
       </Content>
     </Container>
   );
@@ -62,7 +62,10 @@ const LogoImage = styled(Image)`
   }
 `;
 
-const SignIn = styled(Button)`
+const SignIn = styled.a`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 184px;
   height: 60px;
   background-color: #1a72f8;
@@ -73,8 +76,6 @@ const SignIn = styled(Button)`
   text-align: center;
   line-height: 30px;
   margin-top: 120px;
-  border: none;
-  cursor: pointer;
 `;
 
 export default Home;
