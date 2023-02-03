@@ -280,7 +280,216 @@ const Dashboard: React.FC = () => {
               </CardsContainer>
             );
           } else {
-            return <div>ok customers</div>;
+            return (
+              <CardsContainer2>
+                <InvoicesContainer2>
+                  <HeadContainer>
+                    <HeadTitle>Invoices</HeadTitle>
+                    <HeadButton href="/invoices">See all</HeadButton>
+                  </HeadContainer>
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle>#ID</FirstTitle>
+                      <SecondTitle>Status</SecondTitle>
+                      <ThirdTitle>Amount</ThirdTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>199.50$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent data-status="canceled">
+                          Canceled
+                        </SecondContent>
+                        <ThirdContent>2470.49$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>57.04$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>3778$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>248.27$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>199.50$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent data-status="canceled">
+                          Canceled
+                        </SecondContent>
+                        <ThirdContent>2470.49$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>57.04$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>3778$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>248.27$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>199.50$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent data-status="canceled">
+                          Canceled
+                        </SecondContent>
+                        <ThirdContent>2470.49$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>57.04$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent data-status="pending">
+                          Pending
+                        </SecondContent>
+                        <ThirdContent>3778$</ThirdContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent data-status="paid">Paid</SecondContent>
+                        <ThirdContent>248.27$</ThirdContent>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                </InvoicesContainer2>
+
+                <HistoryContainer2>
+                  <HeadContainer>
+                    <HeadTitle>History</HeadTitle>
+                    <HeadButton href="/history">See all</HeadButton>
+                  </HeadContainer>
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle2>Actions</FirstTitle2>
+                      <SecondTitle>Date</SecondTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent2>Outgoing call</FirstContent2>
+                        <SecondContent2>17sec ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Payment received</FirstContent2>
+                        <SecondContent2>1h07 ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>New customer registered</FirstContent2>
+                        <SecondContent2>5h47 ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>New prospect added</FirstContent2>
+                        <SecondContent2>11h47 ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Email sent</FirstContent2>
+                        <SecondContent2>1day ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Quote created</FirstContent2>
+                        <SecondContent2>3days ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Payment received</FirstContent2>
+                        <SecondContent2>1month ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Invoice sent</FirstContent2>
+                        <SecondContent2>4month ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Email sent</FirstContent2>
+                        <SecondContent2>11months ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Quote created</FirstContent2>
+                        <SecondContent2>1year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Outgoing call</FirstContent2>
+                        <SecondContent2>1year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Email sent</FirstContent2>
+                        <SecondContent2>1year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Payment received</FirstContent2>
+                        <SecondContent2>3year ago</SecondContent2>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent2>Invoice sent</FirstContent2>
+                        <SecondContent2>3year ago</SecondContent2>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                </HistoryContainer2>
+              </CardsContainer2>
+            );
           }
         })()}
       </Container>
@@ -334,6 +543,16 @@ const CardsContainer = styled.div`
   grid-row-gap: 0px;
 `;
 
+const CardsContainer2 = styled.div`
+  padding-top: 24px;
+  height: calc(100vh - 144px);
+  width: 100%;
+  max-width: 1376px;
+  margin: auto;
+  display: flex;
+  gap: 24px;
+`;
+
 const QuotesContainer = styled.div`
   grid-area: 1 / 1 / 4 / 2;
   border-radius: 24px;
@@ -352,8 +571,26 @@ const InvoicesContainer = styled.div`
   flex-direction: column;
 `;
 
+const InvoicesContainer2 = styled.div`
+  width: 45%;
+  border-radius: 24px;
+  background-color: ${({ theme }) => theme.colors.bg2};
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+`;
+
 const HistoryContainer = styled.div`
   grid-area: 1 / 5 / 6 / 6;
+  border-radius: 24px;
+  background-color: ${({ theme }) => theme.colors.bg2};
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const HistoryContainer2 = styled.div`
+  width: 55%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
