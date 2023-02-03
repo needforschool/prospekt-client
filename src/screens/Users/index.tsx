@@ -503,6 +503,17 @@ const UsersContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  animation: appear1 2s cubic-bezier(0.355, 0, 0.325, 1);
+  @keyframes appear1 {
+    0% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    20% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const TypeListContainer = styled.div`
@@ -594,6 +605,21 @@ const AddUserContainer = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
+  animation: appear2 2s cubic-bezier(0.355, 0, 0.325, 1);
+  @keyframes appear2 {
+    0% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    15% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    40% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const ActionContainer = styled.div`
@@ -639,6 +665,25 @@ const HistoryContainer = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
+  animation: appear3 2s cubic-bezier(0.355, 0, 0.325, 1);
+  @keyframes appear3 {
+    0% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    20% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    25% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const ArrayContainer = styled.div`
