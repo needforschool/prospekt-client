@@ -1,7 +1,35 @@
 import styled from "styled-components";
 import Sidebar from "@components/Sidebar";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Notes: React.FC = () => {
+  const [users, setUsers] = useState([
+    {
+      id: 0,
+      type: "",
+      email: "",
+      tel: "",
+      name: "",
+      password: "",
+      token: "",
+      siret: "",
+      vat: 0,
+    },
+  ]);
+  const mount = true;
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/users")
+      .then((response) => {
+        console.log(response.data);
+        setUsers(response.data);
+      })
+      .catch(function (error) {
+        // en cas d’échec de la requête
+        console.log(error);
+      });
+  }, [mount]);
   return (
     <Main>
       <Sidebar />
@@ -99,13 +127,13 @@ const Notes: React.FC = () => {
               <InputContainer>
                 <InputLabel htmlFor="customer-select">User</InputLabel>
                 <Select name="user" id="customer-select">
-                  <Option value="">Select customer</Option>
-                  <Option value="dog">Dog</Option>
-                  <Option value="cat">Cat</Option>
-                  <Option value="hamster">Hamster</Option>
-                  <Option value="parrot">Parrot</Option>
-                  <Option value="spider">Spider</Option>
-                  <Option value="goldfish">Goldfish</Option>
+                  {users.map((el, i) => {
+                    return (
+                      <option key={i} value={el.name}>
+                        {el.name}
+                      </option>
+                    );
+                  })}
                 </Select>
               </InputContainer>
               <NoteSep></NoteSep>
@@ -113,12 +141,8 @@ const Notes: React.FC = () => {
                 <InputLabel htmlFor="category-select">Category</InputLabel>
                 <Select name="category" id="category-select">
                   <Option value="">Select actions</Option>
-                  <Option value="dog">Dog</Option>
-                  <Option value="cat">Cat</Option>
-                  <Option value="hamster">Hamster</Option>
-                  <Option value="parrot">Parrot</Option>
-                  <Option value="spider">Spider</Option>
-                  <Option value="goldfish">Goldfish</Option>
+                  <Option value="Outgoing call">Outgoing call</Option>
+                  <Option value="Email Sent">Email Sent</Option>
                 </Select>
               </InputContainer>
               <NoteSep></NoteSep>
