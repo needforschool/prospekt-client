@@ -1,7 +1,29 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Sidebar from "@components/Sidebar";
 
 const History: React.FC = () => {
+  const [userRole, setUserRole] = React.useState("");
+
+  function getCookie() {
+    const name = "role";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        setUserRole(c.split("=")[1]);
+      }
+    }
+    return false;
+  }
+  const mount = true;
+  useEffect(() => {
+    getCookie();
+  }, [mount]);
   return (
     <Main>
       <Sidebar></Sidebar>
@@ -13,219 +35,386 @@ const History: React.FC = () => {
               <HeadTitle>History</HeadTitle>
               <HeadButton href="/notes">Add notes</HeadButton>
             </HeadContainer>
-            <ArrayContainer>
-              <HeadRow>
-                <FirstTitle>Actions</FirstTitle>
-                <SecondTitle>User</SecondTitle>
-                <ThirdTitle>Notes</ThirdTitle>
-                <FourthTitle>Date</FourthTitle>
-              </HeadRow>
-              <ContainerRow>
-                <ContentRow>
-                  <FirstContent>Outgoing call</FirstContent>
-                  <SecondContent>Alex Baumbach</SecondContent>
-                  <ThirdContent>Molestias animi quidem iure.</ThirdContent>
-                  <FourthContent>07/01/2023</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Payment received</FirstContent>
-                  <SecondContent>Janice Heaney</SecondContent>
-                  <ThirdContent>
-                    Nisi mollitia nemo saepe expedita rem tempora quos.
-                  </ThirdContent>
-                  <FourthContent>02/01/2023</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>New customer registered</FirstContent>
-                  <SecondContent>Reginald Doyle</SecondContent>
-                  <ThirdContent>Autem earum praesentium.</ThirdContent>
-                  <FourthContent>29/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>New prospect added</FirstContent>
-                  <SecondContent>Willie Wilderman</SecondContent>
-                  <ThirdContent>
-                    Molestias ab placeat tempora doloremque.
-                  </ThirdContent>
-                  <FourthContent>29/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Email sent</FirstContent>
-                  <SecondContent>Al Kemmer</SecondContent>
-                  <ThirdContent>
-                    Eveniet sunt tenetur hic labore enim.
-                  </ThirdContent>
-                  <FourthContent>29/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Quote created</FirstContent>
-                  <SecondContent>Nathan Mertz</SecondContent>
-                  <ThirdContent>
-                    Dolores architecto omnis exercitationem ad alias maiores
-                    quod accusamus.
-                  </ThirdContent>
-                  <FourthContent>21/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Invoice sent</FirstContent>
-                  <SecondContent>Lori Bahringer</SecondContent>
-                  <ThirdContent>
-                    Alias aperiam aut molestiae non quo quia ab qui.
-                  </ThirdContent>
-                  <FourthContent>21/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Payment received</FirstContent>
-                  <SecondContent>Angelo Miller</SecondContent>
-                  <ThirdContent>
-                    Magnam saepe quisquam porro aperiam et dolore quas officia
-                    voluptas.
-                  </ThirdContent>
-                  <FourthContent>17/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Invoice sent</FirstContent>
-                  <SecondContent>Jeremy Oberbrunner</SecondContent>
-                  <ThirdContent>
-                    Nihil laborum quod et et harum nesciunt quisquam voluptas.
-                  </ThirdContent>
-                  <FourthContent>05/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Email sent</FirstContent>
-                  <SecondContent>Loretta Champlin</SecondContent>
-                  <ThirdContent>Libero eos odio sunt laboriosam.</ThirdContent>
-                  <FourthContent>03/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Quote created</FirstContent>
-                  <SecondContent>Violet Heaney</SecondContent>
-                  <ThirdContent>Ex voluptate ab.</ThirdContent>
-                  <FourthContent>28/11/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Outgoing call</FirstContent>
-                  <SecondContent>Lucas Labadie</SecondContent>
-                  <ThirdContent>
-                    Perferendis et blanditiis non eos.
-                  </ThirdContent>
-                  <FourthContent>28/11/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Outgoing call</FirstContent>
-                  <SecondContent>Alex Baumbach</SecondContent>
-                  <ThirdContent>Molestias animi quidem iure.</ThirdContent>
-                  <FourthContent>07/01/2023</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Payment received</FirstContent>
-                  <SecondContent>Janice Heaney</SecondContent>
-                  <ThirdContent>
-                    Nisi mollitia nemo saepe expedita rem tempora quos.
-                  </ThirdContent>
-                  <FourthContent>02/01/2023</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>New customer registered</FirstContent>
-                  <SecondContent>Reginald Doyle</SecondContent>
-                  <ThirdContent>Autem earum praesentium.</ThirdContent>
-                  <FourthContent>29/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>New prospect added</FirstContent>
-                  <SecondContent>Willie Wilderman</SecondContent>
-                  <ThirdContent>
-                    Molestias ab placeat tempora doloremque.
-                  </ThirdContent>
-                  <FourthContent>29/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Email sent</FirstContent>
-                  <SecondContent>Al Kemmer</SecondContent>
-                  <ThirdContent>
-                    Eveniet sunt tenetur hic labore enim.
-                  </ThirdContent>
-                  <FourthContent>29/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Quote created</FirstContent>
-                  <SecondContent>Nathan Mertz</SecondContent>
-                  <ThirdContent>
-                    Dolores architecto omnis exercitationem ad alias maiores
-                    quod accusamus.
-                  </ThirdContent>
-                  <FourthContent>21/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Invoice sent</FirstContent>
-                  <SecondContent>Lori Bahringer</SecondContent>
-                  <ThirdContent>
-                    Alias aperiam aut molestiae non quo quia ab qui.
-                  </ThirdContent>
-                  <FourthContent>21/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Payment received</FirstContent>
-                  <SecondContent>Angelo Miller</SecondContent>
-                  <ThirdContent>
-                    Magnam saepe quisquam porro aperiam et dolore quas officia
-                    voluptas.
-                  </ThirdContent>
-                  <FourthContent>17/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Invoice sent</FirstContent>
-                  <SecondContent>Jeremy Oberbrunner</SecondContent>
-                  <ThirdContent>
-                    Nihil laborum quod et et harum nesciunt quisquam voluptas.
-                  </ThirdContent>
-                  <FourthContent>05/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Email sent</FirstContent>
-                  <SecondContent>Loretta Champlin</SecondContent>
-                  <ThirdContent>Libero eos odio sunt laboriosam.</ThirdContent>
-                  <FourthContent>03/12/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Quote created</FirstContent>
-                  <SecondContent>Violet Heaney</SecondContent>
-                  <ThirdContent>Ex voluptate ab.</ThirdContent>
-                  <FourthContent>28/11/2022</FourthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>Outgoing call</FirstContent>
-                  <SecondContent>Lucas Labadie</SecondContent>
-                  <ThirdContent>
-                    Perferendis et blanditiis non eos.
-                  </ThirdContent>
-                  <FourthContent>28/11/2022</FourthContent>
-                </ContentRow>
-              </ContainerRow>
-            </ArrayContainer>
+
+            {(() => {
+              if (userRole === "Sales") {
+                return (
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle>Actions</FirstTitle>
+                      <SecondTitle>User</SecondTitle>
+                      <ThirdTitle>Notes</ThirdTitle>
+                      <FourthTitle>Date</FourthTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Alex Baumbach</SecondContent>
+                        <ThirdContent>
+                          Molestias animi quidem iure.
+                        </ThirdContent>
+                        <FourthContent>07/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment received</FirstContent>
+                        <SecondContent>Janice Heaney</SecondContent>
+                        <ThirdContent>
+                          Nisi mollitia nemo saepe expedita rem tempora quos.
+                        </ThirdContent>
+                        <FourthContent>02/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>New customer registered</FirstContent>
+                        <SecondContent>Reginald Doyle</SecondContent>
+                        <ThirdContent>Autem earum praesentium.</ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>New prospect added</FirstContent>
+                        <SecondContent>Willie Wilderman</SecondContent>
+                        <ThirdContent>
+                          Molestias ab placeat tempora doloremque.
+                        </ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Al Kemmer</SecondContent>
+                        <ThirdContent>
+                          Eveniet sunt tenetur hic labore enim.
+                        </ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Quote created</FirstContent>
+                        <SecondContent>Nathan Mertz</SecondContent>
+                        <ThirdContent>
+                          Dolores architecto omnis exercitationem ad alias
+                          maiores quod accusamus.
+                        </ThirdContent>
+                        <FourthContent>21/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Invoice sent</FirstContent>
+                        <SecondContent>Lori Bahringer</SecondContent>
+                        <ThirdContent>
+                          Alias aperiam aut molestiae non quo quia ab qui.
+                        </ThirdContent>
+                        <FourthContent>21/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment received</FirstContent>
+                        <SecondContent>Angelo Miller</SecondContent>
+                        <ThirdContent>
+                          Magnam saepe quisquam porro aperiam et dolore quas
+                          officia voluptas.
+                        </ThirdContent>
+                        <FourthContent>17/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Invoice sent</FirstContent>
+                        <SecondContent>Jeremy Oberbrunner</SecondContent>
+                        <ThirdContent>
+                          Nihil laborum quod et et harum nesciunt quisquam
+                          voluptas.
+                        </ThirdContent>
+                        <FourthContent>05/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Loretta Champlin</SecondContent>
+                        <ThirdContent>
+                          Libero eos odio sunt laboriosam.
+                        </ThirdContent>
+                        <FourthContent>03/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Quote created</FirstContent>
+                        <SecondContent>Violet Heaney</SecondContent>
+                        <ThirdContent>Ex voluptate ab.</ThirdContent>
+                        <FourthContent>28/11/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Lucas Labadie</SecondContent>
+                        <ThirdContent>
+                          Perferendis et blanditiis non eos.
+                        </ThirdContent>
+                        <FourthContent>28/11/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Alex Baumbach</SecondContent>
+                        <ThirdContent>
+                          Molestias animi quidem iure.
+                        </ThirdContent>
+                        <FourthContent>07/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment received</FirstContent>
+                        <SecondContent>Janice Heaney</SecondContent>
+                        <ThirdContent>
+                          Nisi mollitia nemo saepe expedita rem tempora quos.
+                        </ThirdContent>
+                        <FourthContent>02/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>New customer registered</FirstContent>
+                        <SecondContent>Reginald Doyle</SecondContent>
+                        <ThirdContent>Autem earum praesentium.</ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>New prospect added</FirstContent>
+                        <SecondContent>Willie Wilderman</SecondContent>
+                        <ThirdContent>
+                          Molestias ab placeat tempora doloremque.
+                        </ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Al Kemmer</SecondContent>
+                        <ThirdContent>
+                          Eveniet sunt tenetur hic labore enim.
+                        </ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Quote created</FirstContent>
+                        <SecondContent>Nathan Mertz</SecondContent>
+                        <ThirdContent>
+                          Dolores architecto omnis exercitationem ad alias
+                          maiores quod accusamus.
+                        </ThirdContent>
+                        <FourthContent>21/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Invoice sent</FirstContent>
+                        <SecondContent>Lori Bahringer</SecondContent>
+                        <ThirdContent>
+                          Alias aperiam aut molestiae non quo quia ab qui.
+                        </ThirdContent>
+                        <FourthContent>21/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment received</FirstContent>
+                        <SecondContent>Angelo Miller</SecondContent>
+                        <ThirdContent>
+                          Magnam saepe quisquam porro aperiam et dolore quas
+                          officia voluptas.
+                        </ThirdContent>
+                        <FourthContent>17/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Invoice sent</FirstContent>
+                        <SecondContent>Jeremy Oberbrunner</SecondContent>
+                        <ThirdContent>
+                          Nihil laborum quod et et harum nesciunt quisquam
+                          voluptas.
+                        </ThirdContent>
+                        <FourthContent>05/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Loretta Champlin</SecondContent>
+                        <ThirdContent>
+                          Libero eos odio sunt laboriosam.
+                        </ThirdContent>
+                        <FourthContent>03/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Quote created</FirstContent>
+                        <SecondContent>Violet Heaney</SecondContent>
+                        <ThirdContent>Ex voluptate ab.</ThirdContent>
+                        <FourthContent>28/11/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Lucas Labadie</SecondContent>
+                        <ThirdContent>
+                          Perferendis et blanditiis non eos.
+                        </ThirdContent>
+                        <FourthContent>28/11/2022</FourthContent>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                );
+              } else {
+                return (
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle>Actions</FirstTitle>
+                      <SecondTitle>Sales</SecondTitle>
+                      <ThirdTitle>Notes</ThirdTitle>
+                      <FourthTitle>Date</FourthTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Molestias animi quidem iure.
+                        </ThirdContent>
+                        <FourthContent>07/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Nisi mollitia nemo saepe expedita rem tempora quos.
+                        </ThirdContent>
+                        <FourthContent>02/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Eveniet sunt tenetur hic labore enim.
+                        </ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Invoice received</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Alias aperiam aut molestiae non quo quia ab qui.
+                        </ThirdContent>
+                        <FourthContent>21/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Magnam saepe quisquam porro aperiam et dolore quas
+                          officia voluptas.
+                        </ThirdContent>
+                        <FourthContent>17/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Invoice received</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Nihil laborum quod et et harum nesciunt quisquam
+                          voluptas.
+                        </ThirdContent>
+                        <FourthContent>05/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Libero eos odio sunt laboriosam.
+                        </ThirdContent>
+                        <FourthContent>03/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Perferendis et blanditiis non eos.
+                        </ThirdContent>
+                        <FourthContent>28/11/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Molestias animi quidem iure.
+                        </ThirdContent>
+                        <FourthContent>07/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Nisi mollitia nemo saepe expedita rem tempora quos.
+                        </ThirdContent>
+                        <FourthContent>02/01/2023</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Eveniet sunt tenetur hic labore enim.
+                        </ThirdContent>
+                        <FourthContent>29/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Invoice received</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Alias aperiam aut molestiae non quo quia ab qui.
+                        </ThirdContent>
+                        <FourthContent>21/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Payment sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Magnam saepe quisquam porro aperiam et dolore quas
+                          officia voluptas.
+                        </ThirdContent>
+                        <FourthContent>17/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Email sent</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Libero eos odio sunt laboriosam.
+                        </ThirdContent>
+                        <FourthContent>03/12/2022</FourthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>Outgoing call</FirstContent>
+                        <SecondContent>Josh Nitzsche</SecondContent>
+                        <ThirdContent>
+                          Perferendis et blanditiis non eos.
+                        </ThirdContent>
+                        <FourthContent>28/11/2022</FourthContent>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                );
+              }
+            })()}
           </HistoryContainer>
         </CardsContainer>
       </Container>
