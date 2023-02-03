@@ -98,7 +98,7 @@ const AddUser: React.FC = () => {
           </AddUserContainer>
           <HistoryContainer>
             <HeadContainer>
-              <HeadTitle>Quotes</HeadTitle>
+              <HeadTitle>History</HeadTitle>
             </HeadContainer>
             <ArrayContainer>
               <HeadRow>
@@ -226,6 +226,17 @@ const AddUserContainer = styled.div`
   height: 100%;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
+  animation: appear1 2s cubic-bezier(0.355, 0, 0.325, 1);
+  @keyframes appear1 {
+    0% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    20% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const FormWrapper = styled.div`
@@ -352,6 +363,21 @@ const HistoryContainer = styled.div`
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.bg2};
   padding: 24px;
+  animation: appear2 2s cubic-bezier(0.355, 0, 0.325, 1);
+  @keyframes appear2 {
+    0% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    15% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    40% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const HeadContainer = styled.div`
