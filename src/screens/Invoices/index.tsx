@@ -1,165 +1,368 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Sidebar from "@components/Sidebar";
 
 const Invoices: React.FC = () => {
+  const [userRole, setUserRole] = React.useState("");
+
+  function getCookie() {
+    const name = "role";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        setUserRole(c.split("=")[1]);
+      }
+    }
+    return false;
+  }
+  const mount = true;
+  useEffect(() => {
+    getCookie();
+  }, [mount]);
   return (
     <Main>
       <Sidebar></Sidebar>
       <Container>
         <Title>Invoices</Title>
         <CardsContainer>
-          <InvoicesContainer>
-            <HeadContainer>
-              <HeadTitle>Invoices</HeadTitle>
-              <HeadButton href="/notes">Add notes</HeadButton>
-            </HeadContainer>
-            <ArrayContainer>
-              <HeadRow>
-                <FirstTitle>#ID</FirstTitle>
-                <SecondTitle>Customers</SecondTitle>
-                <ThirdTitle>Status</ThirdTitle>
-                <FourthTitle>Amount</FourthTitle>
-                <FifthTitle>Preview</FifthTitle>
-                <SixthTitle>Date</SixthTitle>
-              </HeadRow>
-              <ContainerRow>
-                <ContentRow>
-                  <FirstContent>#4824</FirstContent>
-                  <SecondContent>Phillip</SecondContent>
-                  <ThirdContent data-status="paid">Paid</ThirdContent>
-                  <FourthContent>199.50$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#1505</FirstContent>
-                  <SecondContent>Lipshutz</SecondContent>
-                  <ThirdContent data-status="canceled">Canceled</ThirdContent>
-                  <FourthContent>2470.49$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#6157</FirstContent>
-                  <SecondContent>Dos Santos</SecondContent>
-                  <ThirdContent data-status="pending">Pending</ThirdContent>
-                  <FourthContent>57.04$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#6940</FirstContent>
-                  <SecondContent>Workman</SecondContent>
-                  <ThirdContent data-status="pending">Pending</ThirdContent>
-                  <FourthContent>3778$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#3591</FirstContent>
-                  <SecondContent>Schleifer</SecondContent>
-                  <ThirdContent data-status="paid">Paid</ThirdContent>
-                  <FourthContent>248.27$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#4824</FirstContent>
-                  <SecondContent>Phillip</SecondContent>
-                  <ThirdContent data-status="paid">Paid</ThirdContent>
-                  <FourthContent>199.50$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#1505</FirstContent>
-                  <SecondContent>Lipshutz</SecondContent>
-                  <ThirdContent data-status="canceled">Canceled</ThirdContent>
-                  <FourthContent>2470.49$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#6157</FirstContent>
-                  <SecondContent>Dos Santos</SecondContent>
-                  <ThirdContent data-status="pending">Pending</ThirdContent>
-                  <FourthContent>57.04$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#6940</FirstContent>
-                  <SecondContent>Workman</SecondContent>
-                  <ThirdContent data-status="pending">Pending</ThirdContent>
-                  <FourthContent>3778$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#3591</FirstContent>
-                  <SecondContent>Schleifer</SecondContent>
-                  <ThirdContent data-status="paid">Paid</ThirdContent>
-                  <FourthContent>248.27$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#4824</FirstContent>
-                  <SecondContent>Phillip</SecondContent>
-                  <ThirdContent data-status="paid">Paid</ThirdContent>
-                  <FourthContent>199.50$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#1505</FirstContent>
-                  <SecondContent>Lipshutz</SecondContent>
-                  <ThirdContent data-status="canceled">Canceled</ThirdContent>
-                  <FourthContent>2470.49$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#6157</FirstContent>
-                  <SecondContent>Dos Santos</SecondContent>
-                  <ThirdContent data-status="pending">Pending</ThirdContent>
-                  <FourthContent>57.04$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#6940</FirstContent>
-                  <SecondContent>Workman</SecondContent>
-                  <ThirdContent data-status="pending">Pending</ThirdContent>
-                  <FourthContent>3778$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-                <Sep></Sep>
-                <ContentRow>
-                  <FirstContent>#3591</FirstContent>
-                  <SecondContent>Schleifer</SecondContent>
-                  <ThirdContent data-status="paid">Paid</ThirdContent>
-                  <FourthContent>248.27$</FourthContent>
-                  <FifthContent href="">Open</FifthContent>
-                  <SixthContent>18/11/2022</SixthContent>
-                </ContentRow>
-              </ContainerRow>
-            </ArrayContainer>
-          </InvoicesContainer>
+          {(() => {
+            if (userRole === "Sales") {
+              return (
+                <InvoicesContainer>
+                  <HeadContainer>
+                    <HeadTitle>Invoices</HeadTitle>
+                    <HeadButton href="/notes">Add notes</HeadButton>
+                  </HeadContainer>
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle>#ID</FirstTitle>
+                      <SecondTitle>Customers</SecondTitle>
+                      <ThirdTitle>Status</ThirdTitle>
+                      <FourthTitle>Amount</FourthTitle>
+                      <SixthTitle>Date</SixthTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent>Phillip</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>199.50$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent>Lipshutz</SecondContent>
+                        <ThirdContent data-status="canceled">
+                          Canceled
+                        </ThirdContent>
+                        <FourthContent>2470.49$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent>Dos Santos</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>57.04$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent>Workman</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>3778$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent>Schleifer</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>248.27$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent>Phillip</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>199.50$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent>Lipshutz</SecondContent>
+                        <ThirdContent data-status="canceled">
+                          Canceled
+                        </ThirdContent>
+                        <FourthContent>2470.49$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent>Dos Santos</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>57.04$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent>Workman</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>3778$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent>Schleifer</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>248.27$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent>Phillip</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>199.50$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent>Lipshutz</SecondContent>
+                        <ThirdContent data-status="canceled">
+                          Canceled
+                        </ThirdContent>
+                        <FourthContent>2470.49$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent>Dos Santos</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>57.04$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent>Workman</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>3778$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent>Schleifer</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>248.27$</FourthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                </InvoicesContainer>
+              );
+            } else {
+              return (
+                <InvoicesContainer>
+                  <HeadContainer>
+                    <HeadTitle>Invoices</HeadTitle>
+                    <HeadButton href="/notes">Add notes</HeadButton>
+                  </HeadContainer>
+                  <ArrayContainer>
+                    <HeadRow>
+                      <FirstTitle>#ID</FirstTitle>
+                      <SecondTitle>Sales</SecondTitle>
+                      <ThirdTitle>Status</ThirdTitle>
+                      <FourthTitle>Amount</FourthTitle>
+                      <FifthTitle>Payment</FifthTitle>
+                      <SixthTitle>Date</SixthTitle>
+                    </HeadRow>
+                    <ContainerRow>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent>Phillip</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>199.50$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent>Lipshutz</SecondContent>
+                        <ThirdContent data-status="canceled">
+                          Canceled
+                        </ThirdContent>
+                        <FourthContent>2470.49$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent>Dos Santos</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>57.04$</FourthContent>
+                        <FifthContent href="">Stripe</FifthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent>Workman</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>3778$</FourthContent>
+                        <FifthContent href="">Stripe</FifthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent>Schleifer</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>248.27$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent>Phillip</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>199.50$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent>Lipshutz</SecondContent>
+                        <ThirdContent data-status="canceled">
+                          Canceled
+                        </ThirdContent>
+                        <FourthContent>2470.49$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent>Dos Santos</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>57.04$</FourthContent>
+                        <FifthContent href="">Stripe</FifthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent>Workman</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>3778$</FourthContent>
+                        <FifthContent href="">Stripe</FifthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent>Schleifer</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>248.27$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#4824</FirstContent>
+                        <SecondContent>Phillip</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>199.50$</FourthContent>
+                        <FifthContent href="">Stripe</FifthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#1505</FirstContent>
+                        <SecondContent>Lipshutz</SecondContent>
+                        <ThirdContent data-status="canceled">
+                          Canceled
+                        </ThirdContent>
+                        <FourthContent>2470.49$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6157</FirstContent>
+                        <SecondContent>Dos Santos</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>57.04$</FourthContent>
+                        <FifthContent href="">Stripe</FifthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#6940</FirstContent>
+                        <SecondContent>Workman</SecondContent>
+                        <ThirdContent data-status="pending">
+                          Pending
+                        </ThirdContent>
+                        <FourthContent>3778$</FourthContent>
+                        <FifthContent href="">Stripe</FifthContent>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                      <Sep></Sep>
+                      <ContentRow>
+                        <FirstContent>#3591</FirstContent>
+                        <SecondContent>Schleifer</SecondContent>
+                        <ThirdContent data-status="paid">Paid</ThirdContent>
+                        <FourthContent>248.27$</FourthContent>
+                        <FifthContent2></FifthContent2>
+                        <SixthContent>18/11/2022</SixthContent>
+                      </ContentRow>
+                    </ContainerRow>
+                  </ArrayContainer>
+                </InvoicesContainer>
+              );
+            }
+          })()}
         </CardsContainer>
       </Container>
     </Main>
@@ -419,6 +622,13 @@ const FifthContent = styled.a`
   color: ${({ theme }) => theme.colors.greyscale2};
   background-color: ${({ theme }) => theme.colors.primary1};
   border-radius: 20px;
+`;
+
+const FifthContent2 = styled.div`
+  visibility: hidden;
+  opacity: 0;
+  height: 40px;
+  width: 10%;
 `;
 
 const SixthContent = styled.span`
