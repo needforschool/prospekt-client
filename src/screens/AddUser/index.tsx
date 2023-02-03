@@ -12,88 +12,90 @@ const AddUser: React.FC = () => {
           <AddUserContainer>
             <FormWrapper>
               <FormTitle>Users</FormTitle>
-              <Form>
-                <FormGroup>
-                  <RadioContainer>
-                    <Radio>
-                      <RadioInput
-                        type="radio"
-                        id="individual"
-                        name="identity"
-                        value="individual"
-                      />
-                      <Label htmlFor="individual">Individual</Label>
-                    </Radio>
-                    <Radio>
-                      <RadioInput
-                        type="radio"
-                        id="company"
-                        name="identity"
-                        value="company"
-                        defaultChecked
-                      />
-                      <Label htmlFor="company">Company</Label>
-                    </Radio>
-                  </RadioContainer>
-                </FormGroup>
-                <CompanyInfo>
-                  <FormGroupVariant>
-                    <FieldTitle>SIRET</FieldTitle>
+              <FormContainer>
+                <Form>
+                  <FormGroup>
+                    <RadioContainer>
+                      <Radio>
+                        <RadioInput
+                          type="radio"
+                          id="individual"
+                          name="identity"
+                          value="individual"
+                        />
+                        <Label htmlFor="individual">Individual</Label>
+                      </Radio>
+                      <Radio>
+                        <RadioInput
+                          type="radio"
+                          id="company"
+                          name="identity"
+                          value="company"
+                          defaultChecked
+                        />
+                        <Label htmlFor="company">Company</Label>
+                      </Radio>
+                    </RadioContainer>
+                  </FormGroup>
+                  <CompanyInfo>
+                    <FormGroupVariant>
+                      <FieldTitle>SIRET</FieldTitle>
+                      <TextInput
+                        type="text"
+                        id="siret"
+                        name="siret"
+                        placeholder="123 568 941 00056"
+                      ></TextInput>
+                    </FormGroupVariant>
+                    <FormGroupVariant>
+                      <FieldTitle>VAT</FieldTitle>
+                      <TextInput
+                        type="text"
+                        id="vat"
+                        name="vat"
+                        placeholder="FR 32 123568941"
+                      ></TextInput>
+                    </FormGroupVariant>
+                  </CompanyInfo>
+                  <FormGroup>
+                    <FieldTitle>Full Name</FieldTitle>
                     <TextInput
                       type="text"
-                      id="siret"
-                      name="siret"
-                      placeholder="123 568 941 00056"
+                      id="fullname"
+                      name="fullname"
+                      placeholder="John Doe"
                     ></TextInput>
-                  </FormGroupVariant>
-                  <FormGroupVariant>
-                    <FieldTitle>VAT</FieldTitle>
+                  </FormGroup>
+                  <FormGroup>
+                    <FieldTitle>Email address</FieldTitle>
                     <TextInput
                       type="text"
-                      id="vat"
-                      name="vat"
-                      placeholder="FR 32 123568941"
+                      id="email"
+                      name="email"
+                      placeholder="johndoe@prospekt.com"
                     ></TextInput>
-                  </FormGroupVariant>
-                </CompanyInfo>
-                <FormGroup>
-                  <FieldTitle>Full Name</FieldTitle>
-                  <TextInput
-                    type="text"
-                    id="fullname"
-                    name="fullname"
-                    placeholder="John Doe"
-                  ></TextInput>
-                </FormGroup>
-                <FormGroup>
-                  <FieldTitle>Email address</FieldTitle>
-                  <TextInput
-                    type="text"
-                    id="email"
-                    name="email"
-                    placeholder="johndoe@prospekt.com"
-                  ></TextInput>
-                </FormGroup>
-                <FormGroup>
-                  <FieldTitle>Phone number</FieldTitle>
-                  <TextInput
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    placeholder="+33 06 01 02 03 04"
-                  ></TextInput>
-                </FormGroup>
-                <FormGroup>
-                  <FieldTitle>Password</FieldTitle>
-                  <TextInput
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="***********"
-                  ></TextInput>
-                </FormGroup>
-                <Submit>Send email</Submit>
-              </Form>
+                  </FormGroup>
+                  <FormGroup>
+                    <FieldTitle>Phone number</FieldTitle>
+                    <TextInput
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      placeholder="+33 06 01 02 03 04"
+                    ></TextInput>
+                  </FormGroup>
+                  <FormGroup>
+                    <FieldTitle>Password</FieldTitle>
+                    <TextInput
+                      type="password"
+                      id="password"
+                      name="password"
+                      placeholder="***********"
+                    ></TextInput>
+                  </FormGroup>
+                  <Submit>Send email</Submit>
+                </Form>
+              </FormContainer>
             </FormWrapper>
           </AddUserContainer>
           <HistoryContainer>
@@ -240,16 +242,33 @@ const AddUserContainer = styled.div`
 `;
 
 const FormWrapper = styled.div`
+  height: 100%;
   padding: 24px;
+`;
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  height: calc(100% - 56px);
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: fit-content;
-  width: 90%;
-  margin-top: 24px;
   width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #494a57;
+    border-radius: 2px;
+  }
 `;
 
 const FormTitle = styled.h2`
@@ -262,19 +281,21 @@ const FormTitle = styled.h2`
 const CompanyInfo = styled.div`
   display: flex;
   align-items: flex-end;
+  width: calc(100% - 8px);
   gap: 32px;
-  margin-top: 40px;
+  margin-top: 32px;
   :not(:nth-of-type(2)) {
-    margin-top: 53px;
+    margin-top: 45px;
   }
 `;
 
 const FormGroup = styled.div`
   position: relative;
   display: flex;
+  width: calc(100% - 8px);
   flex-direction: column;
   :not(:first-child) {
-    margin-top: 53px;
+    margin-top: 45px;
     :after {
       content: "";
       position: absolute;
@@ -349,7 +370,7 @@ const TextInput = styled.input`
 `;
 
 const Submit = styled(Button)`
-  width: 20%;
+  width: 25%;
   display: flex;
   align-self: flex-end;
   height: 40px;
