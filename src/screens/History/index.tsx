@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Sidebar from "@components/Sidebar";
+import axios from "axios";
 
 const History: React.FC = () => {
   const [userRole, setUserRole] = React.useState("");
@@ -23,6 +24,9 @@ const History: React.FC = () => {
   const mount = true;
   useEffect(() => {
     getCookie();
+    axios.get("http://localhost:8000/invoices").then((res) => {
+      console.log(res.data);
+    });
   }, [mount]);
   return (
     <Main>
